@@ -25,5 +25,5 @@ module.exports = {
   plugins: [],
 }
 
-/*  Por si quiero modificar algunos estilos que vienen por defecto,fuentes*/
+/*  Por si quiero modificar algunos estilos que vienen por defecto:fuentes bla bla*/
 /* Content, le dice a tailwind a que archivos le vamos a hacer seguimiento  para que utilicen sus extenciones*/
