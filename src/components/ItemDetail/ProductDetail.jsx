@@ -13,9 +13,9 @@ const ProductDetail = () => {
                         <p className="mb-5 col-span-3"><span>ARS 700.00</span></p>
                         
                     <div className="mb-5 col-span-3">
-                        <label for="nameOfTaza" class="form-label inline-block mb-2 text-gray-700"
+                        <label htmlFor="nameOfTaza" className="form-label inline-block mb-2 text-gray-700"
                                             >Elige tu diseño</label>
-                        <select class="form-select appearance-none
+                        <select className="form-select appearance-none
                                             block
                                             w-full
                                             px-3
@@ -31,18 +31,18 @@ const ProductDetail = () => {
                                             m-0
                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id ='nameOfTaza 'aria-label="Default select example">
                                                 <option selected>Diseño</option>
-                                                <option value="1">Diseño1</option>
+                                                <option defaultValue="1">Diseño1</option>
                                                 <option value="2">Diseño2</option>
                                                 <option value="3">Diseño3</option>
                         </select>
                     </div>
                         
 
-                    <div class="mb-5 xl:w-96 col-span-3">
-                        <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
+                    <div className="mb-5 xl:w-96 col-span-3">
+                        <label htmlFor="exampleFormControlTextarea1" className="form-label inline-block mb-2 text-gray-700"
                             >Escribe aqui el nombre para tu taza</label>
                         <textarea
-                            class="
+                            className="
                                 form-control
                                 block
                                 w-full
@@ -67,9 +67,9 @@ const ProductDetail = () => {
                         
                     <div className="mb-5 col-span-3 ">
 
-                        <label for="quantitySelect" class="form-label inline-block mb-2 text-gray-700"
+                        <label htmlFor="quantitySelect" className="form-label inline-block mb-2 text-gray-700"
                             >Cantidad</label>
-                        <select class="form-select appearance-none
+                        <select className="form-select appearance-none
                             block
                             w-full
                             px-3
@@ -87,7 +87,7 @@ const ProductDetail = () => {
                             id ='quantitySelect'
                             >
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
+                                <option defaultValue="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                         </select>

@@ -1,4 +1,5 @@
 import FacebookIcon from "../icons/FacebookIcon";
+import GmailIcon from "../icons/GmailIcon";
 import InstagramIcon from "../icons/InstagramIcon";
 
 
@@ -12,9 +13,10 @@ const Footer = () => {
                 <a href="/">Sobre nosotros</a>
             </nav>
             <div className="grid grid-cols-1 place-items-end">
-                <div className="flex">
+                <div className="flex gap-8">
                     <InstagramIcon/>
                     <FacebookIcon/>
+                    <GmailIcon/>
                 </div>
             </div>
         </footer>

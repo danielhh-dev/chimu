@@ -19,7 +19,8 @@ module.exports = {
         'color-verde' : '#999A83', 
         'color-gris' : '#D9D9D9',
         'gris-oscuro' : '#595959'   
-      }
+      },
+      
     },
   },
   plugins: [],
