@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import NextIcon from '../icons/NextIcon';
 import PreviousIcon from '../icons/PreviousIcon';
+import imgProduct2 from '../../assets/imagen-1.jpg';
 
 import imgProduct1 from '../../assets/imagen-5.jpg';
 
-import imgProduct2 from '../../assets/imagen-1.jpg';
 import imgProduct3 from '../../assets/imagen-2.jpg';
 import imgProduct4 from '../../assets/imagen-3.jpg';
 import imgProduct5 from '../../assets/imagen-4.jpg';
-import { useState } from 'react';
 
 const ARRAY_IMGS = [imgProduct1,imgProduct3,imgProduct4,imgProduct5]; /* Esto queda afuera porque no quiero que se renderice de nuevo */
 

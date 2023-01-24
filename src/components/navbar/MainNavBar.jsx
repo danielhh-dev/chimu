@@ -5,8 +5,8 @@ import FlechaDerecha from "../icons/FlechaDerecha";
 import MenuIcon from "../icons/MenuIcon";
 import SearchIcon from "../icons/SearchIcon";
 
-import imgcart from '../../assets/imagen-1.jpg'
-import DeleteIcon from "../icons/DeleteIcon";
+
+import CartModal from "../CartModal/CartModal";
 
 const NavBar = () => { /*  */
 
@@ -30,6 +30,8 @@ const NavBar = () => { /*  */
             ?setDropMenu('absolute  bg-rosa-claro' )
             :setDropMenu('absolute hidden bg-rosa-oscuro')
     }
+
+    const [isOpenModal, setIsOpenModal] = useState(false)
 
     return(
         <header className=" relative flex bg-rosa-oscuro p-5 items-center justify-between 	">
@@ -56,25 +58,8 @@ const NavBar = () => { /*  */
             
             <div className=" flex gap-4 mx-2">
                 <SearchIcon/>
-                <button><CartIcon/></button>
-                <section className="absolute  top-[125%] z-10 left-0 w-full ">
-                    
-                    <div className="bg-green-400 mx-4 rounded-md"> 
-                        <h4 className="px-6 py-8 font-bold text-lg">Carrito</h4>
-                        <hr />
-                        <div className="grid grid-cols-[1fr_4fr_1fr] gap-6 px-6 py-8">
-                            <img src={imgcart} alt="" className="rounded-md"/>
-                            <div>
-                                <h6>Taza de polimero personalizada</h6>
-                                <div>
-                                    <span>ARS 700 x 3</span> <span className="font-bold">ARS2100</span>
-                                </div>
-                            </div>
-                            <button><DeleteIcon fill="#000"/></button>
-                        </div>
-                    </div>
-                    
-                </section>
+                <button onClick={()=>setIsOpenModal(!isOpenModal)}><CartIcon/></button>
+                {isOpenModal && <CartModal/>}
             </div>
 
         </header>
