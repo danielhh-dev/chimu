@@ -3,13 +3,17 @@ import MainProduct from "./components/ItemDetail/mainProduct";
 import NavBar from "./components/navbar/MainNavBar";
 
 import UseCartContext from "./components/Context/UseCartContext";
+import CartPage from "./components/CartPage/CartPage";
+import SearchIcon from "./components/icons/SearchIcon";
 
 const App = () => {
     return(
         <>  
         <UseCartContext>
             <NavBar/>
+            <section className=" md:hidden grid grid-row-1 justify-center"><SearchIcon /></section>
             <MainProduct/>
+            {/* <CartPage/> */}
             <Footer/>
         </UseCartContext>
         </>

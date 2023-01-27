@@ -1,6 +1,7 @@
 import FacebookIcon from "../icons/FacebookIcon";
 import GmailIcon from "../icons/GmailIcon";
 import InstagramIcon from "../icons/InstagramIcon";
+import WhatsappIcon from "../icons/WhatsappIcon";
 
 
 const Footer = () => {
@@ -17,6 +18,7 @@ const Footer = () => {
                     <InstagramIcon/>
                     <FacebookIcon/>
                     <GmailIcon/>
+                    <WhatsappIcon/>
                 </div>
             </div>
         </footer>

@@ -43,11 +43,14 @@ const UseCartContext = ({children}) => {
         }
     }
 
+    const clear = () => setCart([])
+
     const dataProvide = {
         cart,
         setCart,
         addToCart,
-        deleteToCart
+        deleteToCart,
+        clear
     }
     
     return(
