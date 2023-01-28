@@ -14,7 +14,7 @@ const NavBar = () => {
 const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0')
 
 const handleOpenMenu = () => {
-    setNavClass('absolute z-10 text-white top-0 left-0 h-[105.6vh] md:h-auto md:p-8 bg-rosa-oscuro  flex gap-y-5 font-bold w-3/5 flex-col md:flex-row md:mr-10 md:gap-4 md:static md:p-0')
+    setNavClass('absolute z-10 text-white top-0 left-0 h-[105.6vh] md:h-auto md:p-8 bg-rosa-oscuro  flex gap-y-5 font-bold md:font-normal w-3/5 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0')
 }
 
 const handleCloseMenu = () => {
