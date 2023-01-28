@@ -34,7 +34,7 @@ const SliderProduct = () => {
     }
 
     return(
-        <section className="grid  md:gap-4 ">
+        <section className="grid md:gap-4">
             
             <div className=' relative '>
                 

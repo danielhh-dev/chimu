@@ -60,9 +60,10 @@ const ProductSpecs = () => {
                     <h6>Cantidad</h6>
                     <div className='flex gap-11 justify-center'>
                         <span>3</span>
-                        <div>
-                            <FlechaArriba/>
-                            <FlechaAbajo/>
+                        <div className='flex flex-col gap-1'>
+                            <button><FlechaArriba/></button>
+                            <button><FlechaAbajo/></button>
+                            
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ const NavBar = () => {
 const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0')
 
 const handleOpenMenu = () => {
-    setNavClass('absolute z-10 text-white top-0 left-0 h-full p-8 bg-rosa-oscuro flex gap-y-5 font-bold w-3/5 flex-col md:flex-row md:mr-auto md:gap-4 md:static md:p-0')
+    setNavClass('absolute z-10 text-white top-0 left-0 h-[105.6vh] md:h-auto md:p-8 bg-rosa-oscuro  flex gap-y-5 font-bold w-3/5 flex-col md:flex-row md:mr-10 md:gap-4 md:static md:p-0')
 }
 
 const handleCloseMenu = () => {
@@ -38,19 +38,19 @@ const handleCloseMenu = () => {
         setClick(!click)
         click
             ?setDropMenu('absolute  bg-rosa-claro' )
-            :setDropMenu('absolute hidden bg-rosa-oscuro')
+            :setDropMenu('hidden')
     }
 
     const [isOpenModal, setIsOpenModal] = useState(false)
 
     return(
-        <header className=" relative flex bg-rosa-oscuro p-5 items-center justify-between">
+        <header className=" relative flex bg-rosa-oscuro p-5 items-center justify-between ">
             {/* podria poner un selecSelect */}
             <button className="md:hidden mr-auto" onClick={handleOpenMenu}><MenuIcon/></button>
             <nav className={navClass}> 
                 <button onClick={handleCloseMenu} className="mb-5 md:hidden"><CloseIcon/></button>
                 <a href="/">Inicio</a>
-                <div onClick={handleClickDropMenu} className='cursor-pointer z-10'> 
+                <div onClick={handleClickDropMenu} className='cursor-pointer z-10 '> 
                     Productos
                     <ul className={dropMenu}>
                         <li className="py-2  pl-1 pr-2">Tazas/Botellas</li>
