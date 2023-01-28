@@ -1,8 +1,9 @@
 import { useState } from "react";
-import CartIcon from "../icons/CartIcon";
+import cartIcon from "../../assets/icons/cart.png";
+import menuIcon from "../../assets/icons/menu.png";
 import CloseIcon from "../icons/CloseIcon";
 import FlechaDerecha from "../icons/FlechaAbajo";
-import MenuIcon from "../icons/MenuIcon";
+
 import NavSearchIcon from "../icons/NavSearchIcon";
 
 import CartModal from "../CartModal/CartModal";
@@ -53,7 +54,7 @@ const NavBar = () => {
     <header className=" relative flex items-center justify-between bg-rosa-oscuro p-5 ">
       {/* podria poner un selecSelect */}
       <button className="mr-auto md:hidden" onClick={handleOpenMenu}>
-        <MenuIcon />
+        <img src={menuIcon} alt="" />
       </button>
       <nav className={navClass}>
         <button onClick={handleCloseMenu} className="mb-5 md:hidden">
@@ -83,7 +84,7 @@ const NavBar = () => {
           <NavSearchIcon />
         </div>
         <button onClick={() => setIsOpenModal(!isOpenModal)}>
-          <CartIcon />
+          <img src={cartIcon} alt="" />
         </button>
         {isOpenModal && <CartModal />}
       </div>
