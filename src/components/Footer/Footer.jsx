@@ -22,7 +22,7 @@ const Footer = () => {
       </nav>
 
       <div>
-        <div className="flex w-16 flex-wrap gap-2.5 ">
+        <div className="flex w-16 flex-wrap gap-2.5 md:w-32 ">
           <img src={gmailIcon} alt="" />
           <img src={whatsAppIcon} alt="" />
           <img src={instagramIcon} alt="" />
