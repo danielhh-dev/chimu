@@ -11,24 +11,15 @@ import LogoIcon from "../icons/LogoIcon";
 
 const NavBar = () => {
 
-const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0')
+    const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 md:font-normal ')
 
-const handleOpenMenu = () => {
-    setNavClass('absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] md:h-auto md:p-8 bg-rosa-oscuro  flex gap-y-5 font-bold md:font-normal w-3/5 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0')
-}
-
-const handleCloseMenu = () => {
-    setNavClass('hidden p-8 font-bold md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0')
-}
-    /* const [isOpenMenu, setIsOpenMenu] = useState(false)
-
-    const handleOpenMenu = () => { 
-        setIsOpenMenu(true)
+    const handleOpenMenu = () => {
+        setNavClass('absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] md:h-auto md:p-8 bg-rosa-oscuro  flex gap-y-5 font-bold md:font-normal w-3/5 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0')
     }
 
-    const handleCloseMenu = () => { 
-        setIsOpenMenu(false)
-    } */
+    const handleCloseMenu = () => {
+        setNavClass('hidden p-8 text-white font-bold md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static  md:font-normal md:p-0')
+    }
 
     const [dropMenu, setDropMenu] = useState('absolute hidden bg-rosa-oscuro ')
 

@@ -6,13 +6,15 @@ import UseCartContext from "./components/Context/UseCartContext";
 import CartPage from "./components/CartPage/CartPage";
 import SearchIcon from "./components/icons/SearchIcon";
 import AboutPage from "./components/AboutPage/AboutPage";
+import ContactPage from "./components/ContactPage/ContactPage";
 
 const App = () => {
     return(
         <>  
         <UseCartContext>
             <NavBar/>
-            <AboutPage/>
+            <ContactPage/>
+            {/* <AboutPage/> */}
             {/* <section className=" md:hidden grid grid-row-1 justify-center"><SearchIcon /></section>
             <MainProduct/> */}
             {/* <CartPage/> */}
