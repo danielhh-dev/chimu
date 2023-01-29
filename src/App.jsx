@@ -7,13 +7,15 @@ import CartPage from "./components/CartPage/CartPage";
 import SearchIcon from "./components/icons/SearchIcon";
 import AboutPage from "./components/AboutPage/AboutPage";
 import ContactPage from "./components/ContactPage/ContactPage";
+import OrderPage from "./components/CartPage/OrderPage";
 
 const App = () => {
   return (
     <>
       <UseCartContext>
-        <NavBar />
-        <ContactPage />
+        <NavBar/>
+        <OrderPage/>
+        {/* <ContactPage /> */}
         {/* <AboutPage/> */}
         {/* <section className=" md:hidden grid grid-row-1 justify-center"><SearchIcon /></section>
             <MainProduct/> */}
