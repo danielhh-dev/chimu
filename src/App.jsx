@@ -9,20 +9,19 @@ import AboutPage from "./components/AboutPage/AboutPage";
 import ContactPage from "./components/ContactPage/ContactPage";
 
 const App = () => {
-    return(
-        <>  
-        <UseCartContext>
-            <NavBar/>
-            <ContactPage/>
-            {/* <AboutPage/> */}
-            {/* <section className=" md:hidden grid grid-row-1 justify-center"><SearchIcon /></section>
+  return (
+    <>
+      <UseCartContext>
+        <NavBar />
+        <ContactPage />
+        {/* <AboutPage/> */}
+        {/* <section className=" md:hidden grid grid-row-1 justify-center"><SearchIcon /></section>
             <MainProduct/> */}
-            {/* <CartPage/> */}
-            <Footer/>
-        </UseCartContext>
-        </>
-    )
-}
+        {/* <CartPage/> */}
+        <Footer />
+      </UseCartContext>
+    </>
+  );
+};
 
 export default App;
-
