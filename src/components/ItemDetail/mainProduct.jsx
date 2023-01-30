@@ -21,6 +21,16 @@ const objectProduct = {
     quantity: 1
 }
 
+const objectProduct2 = {
+    id:2,
+    title: 'Hola',
+    description: 'Taza de plastico personalizada con nombre y disenio a eleccion.',
+    measure: 'Medidas: 10cm x 8cm de diametro.',
+    price: 700,
+    images: ARRAY_IMGS,
+    quantity: 1
+}
+
 
 const MainProduct = () =>{
     const {addToCart} = useContext(CartContext);
@@ -29,10 +39,12 @@ const MainProduct = () =>{
                 <SliderProduct/>
                 <ProductDetail objectProduct= {objectProduct}/>
                 <ProductSpecs/>
+                
                 <div className='md:col-span-2 text-center'>
                         <button className="col-span-3 rounded-md w-1/4 bg-slate-400 py-3 mb-10" onClick={() => addToCart(objectProduct)}> Añadir al carrito </button>
                         <h2 className='text-center underline text-gray-500 text-xl '>Envíos gratuitos en compras superiores a $20000</h2>
                 </div>
+                
         </main>
     )
 }

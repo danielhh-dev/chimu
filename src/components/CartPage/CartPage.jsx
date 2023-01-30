@@ -40,7 +40,7 @@ const CART = [
 const CartPage = () => { 
     return(
         <section >
-            <h1 className='text-center text-xl'>Tu pedido</h1>
+            <h1 className='text-center text-xl'>Carrito</h1>
                 <div className='grid grid-cols-[.5fr_1fr_1fr] items-center '>
 
                 <img src={ARRAY_IMGS[0]} alt="" />
