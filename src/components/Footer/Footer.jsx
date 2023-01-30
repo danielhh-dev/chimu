@@ -10,13 +10,13 @@ const Footer = () => {
         <a className="text-sm text-white" href="/">
           Inicio
         </a>
-        <a className="text-sm text-white" href="/">
+        <a className="text-sm text-white  md:text-lg" href="/">
           Productos{" "}
         </a>
-        <a className="text-sm text-white" href="/">
+        <a className="text-sm text-white  md:text-lg" href="/">
           Contacto
         </a>
-        <a className="text-sm text-white" href="/">
+        <a className="text-sm text-white  md:text-lg" href="/">
           Sobre nosotros
         </a>
       </nav>
