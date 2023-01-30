@@ -41,7 +41,7 @@ const CartPage = () => {
     return(
         <section >
             <h1 className='text-center text-xl'>Carrito</h1>
-                <div className='grid grid-cols-[.5fr_1fr_1fr] items-center '>
+                <div className='grid grid-cols-[.5fr_1fr_1fr] items-center md:w-9/12 md:mx-auto'>
 
                 <img src={ARRAY_IMGS[0]} alt="" />
                 

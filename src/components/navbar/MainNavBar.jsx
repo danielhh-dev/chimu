@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+import {CartContext} from '../Context/UseCartContext';
+
 import cartIcon from "../../assets/icons/cart.png";
 import menuIcon from "../../assets/icons/menu.png";
 import CloseIcon from "../icons/CloseIcon";
@@ -8,21 +11,24 @@ import NavSearchIcon from "../icons/NavSearchIcon";
 
 import CartModal from "../CartModal/CartModal";
 import LogoIcon from "../icons/LogoIcon";
+import { useContext } from "react";
 
 const NavBar = () => {
 
-    const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 md:font-normal ')
+    const {cart} = useContext(CartContext);
+
+    const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 ')
 
     
     const handleOpenMenu = () => {
         setNavClass(
-            "absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5 font-bold md:font-normal w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
+            "absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
     );
     };
 
     const handleCloseMenu = () => {
     setNavClass(
-        "hidden p-8 font-bold md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-2 md:font-normal text-white "
+        "hidden p-8  md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-2  text-white "
     );
     };
 
@@ -74,8 +80,9 @@ const NavBar = () => {
             <div className="hidden md:block">
             <NavSearchIcon />
             </div>
-            <button onClick={() => setIsOpenModal(!isOpenModal)}>
-            <img src={cartIcon} alt="" />
+            <button className="relative flex items-center justify-center" onClick={() => setIsOpenModal(!isOpenModal)}>
+                {cart.length>0 &&<span className=" absolute -top-4 md:-top-2 text-xs text-white font-bold">{cart.length}</span>}
+                <img src={cartIcon} alt="" />
             </button>
             {isOpenModal && <CartModal />}
         </div>

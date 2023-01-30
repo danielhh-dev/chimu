@@ -31,6 +31,11 @@ const ContactPage = () => {
                 </div>
                 <button className="bg-color-verde h-10 w-1/2 rounded-lg my-6 text-white md:col-span-2 md:w-1/3">Enviar</button>
             </form>
+
+
+            <div className="">
+                
+            </div>
         </section>
     )
 }

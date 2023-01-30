@@ -35,13 +35,13 @@ const objectProduct2 = {
 const MainProduct = () =>{
     const {addToCart} = useContext(CartContext);
     return(
-        <main className="grid  grid-cols-1 md:grid-cols-2 lg:mt-10 gap-8 items-center md:container  md:mx-auto md:min-h-[calc(100vh-84px)]  mb-8">
+        <main className="grid  grid-cols-1  md:grid-cols-2 md:w-9/12 lg:mt-10 gap-8 items-center md:container  md:mx-auto md:min-h-[calc(100vh-84px)]  mb-8">
                 <SliderProduct/>
                 <ProductDetail objectProduct= {objectProduct}/>
                 <ProductSpecs/>
                 
                 <div className='md:col-span-2 text-center'>
-                        <button className="col-span-3 rounded-md w-1/4 bg-slate-400 py-3 mb-10" onClick={() => addToCart(objectProduct)}> Añadir al carrito </button>
+                        <button className="col-span-3 rounded-md w-1/4 bg-slate-400 py-3 mb-10" onClick={() => addToCart(objectProduct2)}> Añadir al carrito </button>
                         <h2 className='text-center underline text-gray-500 text-xl '>Envíos gratuitos en compras superiores a $20000</h2>
                 </div>
                 
