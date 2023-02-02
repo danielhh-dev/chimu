@@ -5,7 +5,7 @@ import whatsAppIcon from "../../assets/icons/whatsApp.png";
 
 const Footer = () => {
   return (
-    <footer className="bottom-0 flex h-44  w-full flex-row items-end justify-between bg-color-verde pl-4 pt-7 pr-5 pb-8 md:pb-5">
+    <footer className=" bottom-0  flex h-44 w-full flex-row items-end justify-between bg-color-verde pl-4 pt-7 pr-5 pb-8 md:pb-5">
       <nav className="flex flex-col gap-3 ">
         <a className="text-sm text-white md:text-lg " href="/">
           Inicio
@@ -22,7 +22,7 @@ const Footer = () => {
       </nav>
 
       <div>
-        <div className="flex w-16 flex-wrap md:w-full gap-2.5 ">
+        <div className="flex w-16 flex-wrap gap-2.5 md:w-full ">
           <img src={gmailIcon} alt="" />
           <img src={whatsAppIcon} alt="" />
           <img src={instagramIcon} alt="" />
