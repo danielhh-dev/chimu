@@ -18,7 +18,6 @@ const NavBar = () => {
     const {cart} = useContext(CartContext);
 
     const [navClass,setNavClass] = useState('hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 ')
-
     
     const handleOpenMenu = () => {
         setNavClass(
@@ -81,7 +80,7 @@ const NavBar = () => {
             <NavSearchIcon />
             </div>
             <button className="relative flex items-center justify-center" onClick={() => setIsOpenModal(!isOpenModal)}>
-                {cart.length>0 &&<span className=" absolute -top-4 md:-top-2 text-xs text-white font-bold">{cart.length}</span>}
+                {cart.length > 0 && <span className=" absolute -top-4 md:-top-2 text-xs text-white font-bold">{cart.length}</span>}
                 <img src={cartIcon} alt="" />
             </button>
             {isOpenModal && <CartModal />}

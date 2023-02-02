@@ -3,8 +3,8 @@ import FlechaArriba from '../icons/FlechaArriba';
 
 const ProductSpecs = () => {
     return(
-        <div className="grid grid-cols-3 mb-6">
-                        <div className="mb-5 col-span-3 w-1/2">
+        <div className="grid grid-cols-2 mb-6 mx-4 md:mx-0">
+                        <div className="mb-5 col-span-3 w-1/2 ">
                             <label htmlFor="nameOfTaza" className="form-label inline-block mb-2 text-gray-700"
                                                 >Elige tu diseño </label>
                             <select className="form-select appearance-none
@@ -56,17 +56,7 @@ const ProductSpecs = () => {
                         ></textarea>
                     </div>
                         
-                    <div className='flex flex-col  mb-4 bg-rosa-claro w-2/4 '>
-                    <h6>Cantidad</h6>
-                    <div className='flex gap-11 justify-center'>
-                        <span>3</span>
-                        <div className='flex flex-col gap-1'>
-                            <button><FlechaArriba/></button>
-                            <button><FlechaAbajo/></button>
-                            
-                        </div>
-                    </div>
-                </div>
+                    
                 
                         
                         
