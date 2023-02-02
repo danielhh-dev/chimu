@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UseCartContext from "./components/Context/UseCartContext";
+import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import MainProduct from "./components/ItemDetail/mainProduct";
 import NavBar from "./components/navbar/MainNavBar";
@@ -13,7 +14,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <UseCartContext>
-        <NavBar/>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
         {/* <OrderPage/> */}
         {/* <ContactPage /> */}
         {/* <AboutPage/> */}
