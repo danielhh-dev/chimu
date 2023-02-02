@@ -8,8 +8,7 @@ import vasos from "./images/vasos.jpg";
 const featuredProducts = [gorras, soccer, vasos];
 let count = 0;
 let slideInterval;
-
-const HomeSlider = () => {
+const MainSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slideRef = useRef();
@@ -19,6 +18,7 @@ const HomeSlider = () => {
   };
 
   useEffect(() => {
+    "";
     slideRef.current.addEventListener("animationend", removeAnimation);
     slideRef.current.addEventListener("mouseenter", pauseSlider);
     slideRef.current.addEventListener("mouseleave", startSlider);
@@ -27,7 +27,6 @@ const HomeSlider = () => {
     return () => {
       pauseSlider();
     };
-    // eslint-disable-next-line
   }, []);
 
   const startSlider = () => {
@@ -69,4 +68,4 @@ const HomeSlider = () => {
     </div>
   );
 };
-export default HomeSlider;
+export default MainSlider;

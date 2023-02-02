@@ -1,11 +1,9 @@
-import HomeSlider from "../HomeSlider/HomeSlider";
-
-HomeSlider;
+import MainSlider from "../MainSlider/MainSlider";
 
 const Home = () => {
   return (
     <div>
-      <HomeSlider />
+      <MainSlider />
     </div>
   );
 };
