@@ -53,8 +53,8 @@ const MainSlider = () => {
 
   return (
     <div ref={slideRef} className="relative w-full select-none">
-      <div className="aspect-w-16 aspect-h-9">
-        <img src={featuredProducts[currentIndex]} alt="" />
+      <div className=" aspect-w-16 aspect-h-9 ">
+        <img src={featuredProducts[currentIndex]} alt="" /> 
       </div>
 
       <div className="absolute top-1/2 flex w-full -translate-y-1/2 transform items-center justify-between px-3">
@@ -69,3 +69,7 @@ const MainSlider = () => {
   );
 };
 export default MainSlider;
+
+/* En linea 56-58:
+Podria poner un w-full en la imagen o flex justify-content en el div que la contiene pero se ve cortado
+*/

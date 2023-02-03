@@ -21,8 +21,8 @@ const App = () => {
         {/* <OrderPage/> */}
         {/* <ContactPage /> */}
         {/* <AboutPage/> */}
-        <section className=" md:hidden grid grid-row-1 justify-center "><SearchIcon /></section>
-            <MainProduct/>
+        {/* <section className=" md:hidden grid grid-row-1 justify-center "><SearchIcon /></section>
+            <MainProduct/> */}
         {/* <CartPage/> */}
         <Footer />
       </UseCartContext>

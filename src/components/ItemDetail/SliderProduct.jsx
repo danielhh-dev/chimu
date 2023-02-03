@@ -36,7 +36,7 @@ const SliderProduct = () => {
     return(
         <section className="grid md:gap-4">
             
-            <div className=' relative '>
+            <div className='relative'>
                 
                 <div className='absolute top-1/2 left-0 -translate-y-1/2 w-full flex justify-between px-2 '>
                     <button onClick={handleClickPrev} className='grid h-10 w-10 place-items-center'><PreviousIcon/></button>
