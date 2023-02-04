@@ -1,59 +1,70 @@
-import { useContext } from 'react';
-import {CartContext} from '../Context/UseCartContext';
-import imgcart from '../../assets/imagen-1.jpg'
+import { useContext } from "react";
+// import {CartContext} from '../Context/UseCartContext';
+import imgcart from "../../assets/imagen-1.jpg";
 import DeleteIcon from "../icons/DeleteIcon";
 
-
 const CartModal = () => {
+  const { cart, deleteToCart } = useContext(CartContext);
 
-    const {cart, deleteToCart} = useContext(CartContext);
+  return (
+    <section className="absolute  top-[125%] left-0 z-10 w-full md:left-full md:top-full md:max-w-md md:-translate-x-full ">
+      <div className="mx-4 rounded-md bg-gray-200">
+        <h4 className="px-6 py-8 text-center text-lg font-bold">Carrito</h4>
+        {cart.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="w-full  border border-solid border-black"></div>
 
-    return(
-        
-        <section className="absolute  top-[125%] z-10 left-0 w-full md:max-w-md md:left-full md:-translate-x-full md:top-full ">
-                    
-        <div className="bg-gray-200 mx-4 rounded-md"> 
-            <h4 className="px-6 py-8 font-bold text-lg text-center">Carrito</h4>
-            {cart.map( (item,index) => {
-                return (
-                    <div key={index}>
-                        <div  className='w-full  border-black border-solid border'></div>
-                        
-                        <div className="grid grid-cols-[1fr_4fr_1fr] gap-6 px-6 py-4 items-center" >
-                            <img src={imgcart} alt="" className="rounded-md"/>
-                            <div>
-                                <h6>{item.title}</h6>
-                                <div>
-                                    <span>Cantidad: {item.quantity}</span> <br />
-                                    <span>ARS {item.price}</span>  <br></br>
-                                    <span>Monto</span>
-                                </div>
-                            </div>
+              <div className="grid grid-cols-[1fr_4fr_1fr] items-center gap-6 px-6 py-4">
+                <img src={imgcart} alt="" className="rounded-md" />
+                <div>
+                  <h6>{item.title}</h6>
+                  <div>
+                    <span>Cantidad: {item.quantity}</span> <br />
+                    <span>ARS {item.price}</span> <br></br>
+                    <span>Monto</span>
+                  </div>
+                </div>
 
-                            <div className='pt-12'>
-                                <button className="ml-auto" onClick={()=> deleteToCart(item.id)}>{/* <DeleteIcon fill="#000"/> */}Eliminar</button>
-                                <span className="font-bold">ARS{item.price*item.quantity}</span>
-                            </div>
-                        </div>
-                    </div>
-                )
-            })}
-    
-            
-            {cart.length == 0 
-                ?   <span className='flex p-4 '>No hay items, <a className='underline ' href="/"> ver productos</a></span>
-                :   <div className="px-6 pb-8"> 
-                        <span className='font-bold text-lg flex justify-end'>Total: ${cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0)}</span>
-                        <button className="w-full py-4 bg-slate-300 rounded-md"> Hacer pedido</button>
-                    </div>
-            }
-                
+                <div className="pt-12">
+                  <button
+                    className="ml-auto"
+                    onClick={() => deleteToCart(item.id)}
+                  >
+                    {/* <DeleteIcon fill="#000"/> */}Eliminar
+                  </button>
+                  <span className="font-bold">
+                    ARS{item.price * item.quantity}
+                  </span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
 
-            
-        </div>
-        
+        {cart.length == 0 ? (
+          <span className="flex p-4 ">
+            No hay items,{" "}
+            <a className="underline " href="/">
+              {" "}
+              ver productos
+            </a>
+          </span>
+        ) : (
+          <div className="px-6 pb-8">
+            <span className="flex justify-end text-lg font-bold">
+              Total: $
+              {cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0)}
+            </span>
+            <button className="w-full rounded-md bg-slate-300 py-4">
+              {" "}
+              Hacer pedido
+            </button>
+          </div>
+        )}
+      </div>
     </section>
-    )
-}
+  );
+};
 
 export default CartModal;

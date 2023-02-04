@@ -15,8 +15,8 @@ const MainContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const queryCollection = collection(db, categoryId);
     if (categoryId) {
+      const queryCollection = collection(db, categoryId);
       getDocs(queryCollection).then((res) =>
         setProducts(
           res.docs.map((product) => ({ id: product.id, ...product.data() }))
@@ -33,7 +33,7 @@ const MainContainer = () => {
 
   return (
     <>
-      <ItemList products={products} />
+      <ItemList props={products} />
     </>
   );
 };
