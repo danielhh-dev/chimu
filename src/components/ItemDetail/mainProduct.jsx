@@ -10,6 +10,7 @@ import imgProduct4 from '../../assets/imagen-3.jpg';
 import imgProduct5 from '../../assets/imagen-4.jpg';
 import { useContext, useState } from 'react';
 import {CartContext} from '../Context/UseCartContext';
+import NavSearchIcon from "../icons/NavSearchIcon";
 
 const ARRAY_IMGS = [imgProduct1,imgProduct3,imgProduct4,imgProduct5];
 
@@ -59,6 +60,8 @@ const MainProduct = () =>{
     }
     const {addToCart} = useContext(CartContext);
     return(
+        <>
+        <NavSearchIcon navBar = {false} />
         <main className="grid  grid-cols-1  md:grid-cols-2 md:w-9/12 lg:mt-10 gap-8 items-center md:container  md:mx-auto md:min-h-[calc(100vh-84px)]  mb-8">
                 <SliderProduct/>
                 <ProductDetail objectProduct= {objectProduct}/>
@@ -81,6 +84,7 @@ const MainProduct = () =>{
                 </div>
                 
         </main>
+        </>
     )
 }
 

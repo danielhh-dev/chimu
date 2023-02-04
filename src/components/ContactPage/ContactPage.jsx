@@ -1,6 +1,9 @@
+import NavSearchIcon from "../icons/NavSearchIcon";
+
 const ContactPage = () => {
     return(
         <section className="">
+            
             <h1 className="text-center my-6 text-3xl">Contacto</h1>
             <p className="hidden md:flex md:justify-center md:my-8">Si estás buscando un diseño personalizado. Dejanos tus datos de contacto para poder brindarte lo mejor.</p>
 

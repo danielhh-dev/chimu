@@ -77,7 +77,7 @@ const NavBar = () => {
 
         <div className=" mx-2 flex gap-4">
             <div className="hidden md:block">
-            <NavSearchIcon />
+            <NavSearchIcon  navBar = {true} />
             </div>
             <button className="relative flex items-center justify-center" onClick={() => setIsOpenModal(!isOpenModal)}>
                 {cart.length > 0 && <span className=" absolute -top-4 md:-top-2 text-xs text-white font-bold">{cart.length}</span>}
