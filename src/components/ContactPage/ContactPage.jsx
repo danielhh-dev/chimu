@@ -1,4 +1,4 @@
-import NavSearchIcon from "../icons/NavSearchIcon";
+
 
 const ContactPage = () => {
     return(
