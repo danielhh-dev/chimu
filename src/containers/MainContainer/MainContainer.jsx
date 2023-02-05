@@ -1,4 +1,6 @@
-import ItemList from "../../components/ItemList/ItemList";
+import Home from "../../Pages/Home/Home";
+import TazasBotellas from "../../Pages/TazasBotellas.jsx/TazasBotellas";
+import MainProduct from "../ItemDetailContainer/mainProduct";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -12,7 +14,7 @@ import {
 const MainContainer = () => {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
-
+  const [component, setComponent] = useState();
   useEffect(() => {
     const db = getFirestore();
     const queryCollection = collection(db, "items");
@@ -40,32 +42,48 @@ const MainContainer = () => {
 
     switch (categoryId) {
       case "tazasbotellas":
-        getDocs(
-          query(queryCollection, where("category", "==", categoryId))
-        ).then((res) =>
-          setProducts(
-            res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        getDocs(query(queryCollection, where("category", "==", categoryId)))
+          .then((res) =>
+            setProducts(
+              res.docs.map((product) => ({ id: product.id, ...product.data() }))
+            )
           )
-        );
+          .then(setComponent(<TazasBotellas products={products} />));
+        break;
+
+      case "kits":
+        getDocs(query(queryCollection, where("category", "==", categoryId)))
+          .then((res) =>
+            setProducts(
+              res.docs.map((product) => ({ id: product.id, ...product.data() }))
+            )
+          )
+          .then(setComponent(<MainProduct products={products} />));
+        break;
+
+      case "cotillones":
+        getDocs(query(queryCollection, where("category", "==", categoryId)))
+          .then((res) =>
+            setProducts(
+              res.docs.map((product) => ({ id: product.id, ...product.data() }))
+            )
+          )
+          .then(setComponent(<MainProduct products={products} />));
         break;
 
       default:
-        getDocs(
-          query(queryCollection, where("category", "==", "principales"))
-        ).then((res) =>
-          setProducts(
-            res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        getDocs(query(queryCollection, where("category", "==", "principales")))
+          .then((res) =>
+            setProducts(
+              res.docs.map((product) => ({ id: product.id, ...product.data() }))
+            )
           )
-        );
+          .then(setComponent(<Home />));
         break;
     }
   }, [categoryId]);
 
-  return (
-    <>
-      <ItemList props={products} />
-    </>
-  );
+  return <>{component}</>;
 };
 
 export default MainContainer;
