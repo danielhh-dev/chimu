@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// import {CartContext} from '../Context/UseCartContext';
+import { CartContext } from "../../context/UseCartContext";
 
 import cartIcon from "../../assets/icons/cart.png";
 import menuIcon from "../../assets/icons/menu.png";
@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
 const NavBar = () => {
-  //   const { cart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   const [navClass, setNavClass] = useState(
     "hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 "
@@ -63,10 +63,14 @@ const NavBar = () => {
           Productos
           <ul className={dropMenu}>
             <li className="py-2  pl-1 pr-2">
-              <NavLink to="/category/TazasBotellas">Tazas/Botellas</NavLink>
+              <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
             </li>
-            <li className="py-2 pl-1 pr-2">Kits</li>
-            <li className="py-2 pl-1 pr-2">Cotillones</li>
+            <li className="py-2 pl-1 pr-2">
+              <NavLink to="/category/kits">Kits</NavLink>
+            </li>
+            <li className="py-2 pl-1 pr-2">
+              <NavLink to="/category/cotillones">Cotillones</NavLink>
+            </li>
             <li className="py-2 pl-1 pr-2">Indumentaria</li>
             <li className="py-2 pl-1 pr-2">Papeleria</li>
             <li className="py-2 pl-1 pr-2">Otros</li>
@@ -83,7 +87,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           <NavSearchIcon navBar={true} />
         </div>
-        {/* <button
+        <button
           className="relative flex items-center justify-center"
           onClick={() => setIsOpenModal(!isOpenModal)}
         >
@@ -94,7 +98,7 @@ const NavBar = () => {
           )}
           <img src={cartIcon} alt="" />
         </button>
-        {isOpenModal && <CartModal />} */}
+        {isOpenModal && <CartModal />}
       </div>
     </header>
   );
