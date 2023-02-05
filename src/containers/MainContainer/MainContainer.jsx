@@ -15,19 +15,49 @@ const MainContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    if (categoryId) {
-      const queryCollection = collection(db, categoryId);
-      getDocs(queryCollection).then((res) =>
-        setProducts(
-          res.docs.map((product) => ({ id: product.id, ...product.data() }))
-        )
-      );
-    } else {
-      getDocs(collection(db, "ProductosPrincipales")).then((res) =>
-        setProducts(
-          res.docs.map((product) => ({ id: product.id, ...product.data() }))
-        )
-      );
+    const queryCollection = collection(db, "items");
+    //   if (categoryId) {
+    //     const queryFilter = query(
+    //       queryCollection,
+    //       where("category", "==", categoryId)
+    //     );
+    //     getDocs(queryFilter).then((res) =>
+    //       setProducts(
+    //         res.docs.map((product) => ({ id: product.id, ...product.data() }))
+    //       )
+    //     );
+    //   } else {
+    //     const queryFilter = query(
+    //       queryCollection,
+    //       where("category", "==", "principales")
+    //     );
+    //     getDocs(queryFilter).then((res) =>
+    //       setProducts(
+    //         res.docs.map((product) => ({ id: product.id, ...product.data() }))
+    //       )
+    //     );
+    //   }
+
+    switch (categoryId) {
+      case "tazasbotellas":
+        getDocs(
+          query(queryCollection, where("category", "==", categoryId))
+        ).then((res) =>
+          setProducts(
+            res.docs.map((product) => ({ id: product.id, ...product.data() }))
+          )
+        );
+        break;
+
+      default:
+        getDocs(
+          query(queryCollection, where("category", "==", "principales"))
+        ).then((res) =>
+          setProducts(
+            res.docs.map((product) => ({ id: product.id, ...product.data() }))
+          )
+        );
+        break;
     }
   }, [categoryId]);
 
