@@ -1,5 +1,5 @@
 import { useContext } from "react";
-// import {CartContext} from '../Context/UseCartContext';
+import { CartContext } from "../../context/UseCartContext";
 import imgcart from "../../assets/imagen-1.jpg";
 import DeleteIcon from "../icons/DeleteIcon";
 
@@ -11,14 +11,15 @@ const CartModal = () => {
       <div className="mx-4 rounded-md bg-gray-200">
         <h4 className="px-6 py-8 text-center text-lg font-bold">Carrito</h4>
         {cart.map((item, index) => {
+          console.log("desde cartmodal", item);
           return (
             <div key={index}>
               <div className="w-full  border border-solid border-black"></div>
 
               <div className="grid grid-cols-[1fr_4fr_1fr] items-center gap-6 px-6 py-4">
-                <img src={imgcart} alt="" className="rounded-md" />
+                <img src={item.image[0]} alt="" className="rounded-md" />
                 <div>
-                  <h6>{item.title}</h6>
+                  <h6>{item.name}</h6>
                   <div>
                     <span>Cantidad: {item.quantity}</span> <br />
                     <span>ARS {item.price}</span> <br></br>

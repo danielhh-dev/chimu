@@ -16,11 +16,11 @@ const ARRAY_IMGS = [
   imgProduct5,
 ]; /* Esto queda afuera porque no quiero que se renderice de nuevo */
 
-const SliderProduct = () => {
+const SliderProduct = ({ images }) => {
   const [index, setIndex] = useState(0);
 
   const handleClickNext = () => {
-    if (index === ARRAY_IMGS.length - 1) {
+    if (index === images.length - 1) {
       setIndex(0);
     } else {
       setIndex(index + 1);
@@ -29,7 +29,7 @@ const SliderProduct = () => {
 
   const handleClickPrev = () => {
     if (index === 0) {
-      setIndex(ARRAY_IMGS.length - 1);
+      setIndex(images.length - 1);
     } else {
       setIndex(index - 1);
     }
@@ -54,7 +54,7 @@ const SliderProduct = () => {
         </div>
 
         <img
-          src={ARRAY_IMGS[index]}
+          src={images[index]}
           alt="img"
           className="aspect-[16/14] w-full md:aspect-[12/20] xl:aspect-[16/16]"
         ></img>
