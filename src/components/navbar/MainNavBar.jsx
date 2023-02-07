@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-// import {CartContext} from '../Context/UseCartContext';
+import { BiChevronRight } from "react-icons/bi";
+import { CartContext } from "../../context/UseCartContext";
 
 import cartIcon from "../../assets/icons/cart.png";
 import menuIcon from "../../assets/icons/menu.png";
@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
 const NavBar = () => {
-  //   const { cart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   const [navClass, setNavClass] = useState(
     "hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 "
@@ -41,7 +41,7 @@ const NavBar = () => {
     setClick(!click);
     click
       ? setDropMenu(
-          " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 "
+          " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
       : setDropMenu("hidden");
   };
@@ -59,21 +59,33 @@ const NavBar = () => {
           <CloseIcon />
         </button>
         <a href="/">Inicio</a>
-        <div onClick={handleClickDropMenu} className="z-10 cursor-pointer ">
-          Productos
-          <ul className={dropMenu}>
-            <li className="py-2  pl-1 pr-2">
-              <NavLink to="/category/TazasBotellas">Tazas/Botellas</NavLink>
-            </li>
-            <li className="py-2 pl-1 pr-2">Kits</li>
-            <li className="py-2 pl-1 pr-2">Cotillones</li>
-            <li className="py-2 pl-1 pr-2">Indumentaria</li>
-            <li className="py-2 pl-1 pr-2">Papeleria</li>
-            <li className="py-2 pl-1 pr-2">Otros</li>
-          </ul>
+
+        <div className="flex">
+          <NavLink to="/category">Productos</NavLink>
+          <div
+            onClick={handleClickDropMenu}
+            className="z-10 mt-2 cursor-pointer pl-5"
+          >
+            <BiChevronRight className={click ? "rotate-0" : "rotate-90"} />
+            <ul className={dropMenu}>
+              <li className="py-2  pl-1 pr-2">
+                <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">
+                <NavLink to="/category/kits">Kits</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">
+                <NavLink to="/category/cotillones">Cotillones</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">Indumentaria</li>
+              <li className="py-2 pl-1 pr-2">Papeleria</li>
+              <li className="py-2 pl-1 pr-2">Otros</li>
+            </ul>
+          </div>
         </div>
-        <a href="/">Contacto</a>
-        <a href="/">Sobre nosotros</a>
+
+        <NavLink to="/contacto"> Contacto</NavLink>
+        <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
       <div className=" mr-auto ">
         <LogoIcon />
@@ -83,7 +95,7 @@ const NavBar = () => {
         <div className="hidden md:block">
           <NavSearchIcon navBar={true} />
         </div>
-        {/* <button
+        <button
           className="relative flex items-center justify-center"
           onClick={() => setIsOpenModal(!isOpenModal)}
         >
@@ -94,7 +106,7 @@ const NavBar = () => {
           )}
           <img src={cartIcon} alt="" />
         </button>
-        {isOpenModal && <CartModal />} */}
+        {isOpenModal && <CartModal />}
       </div>
     </header>
   );

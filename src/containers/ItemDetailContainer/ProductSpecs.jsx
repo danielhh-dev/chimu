@@ -1,3 +1,5 @@
+import FlechaAbajo from "../../components/icons/FlechaAbajo";
+import FlechaArriba from "../../components/icons/FlechaArriba";
 
 const ProductSpecs = () => {
   return (
