@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { BiChevronRight } from "react-icons/bi";
 import { CartContext } from "../../context/UseCartContext";
 
 import cartIcon from "../../assets/icons/cart.png";
@@ -41,7 +41,7 @@ const NavBar = () => {
     setClick(!click);
     click
       ? setDropMenu(
-          " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 "
+          " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
       : setDropMenu("hidden");
   };
@@ -59,25 +59,33 @@ const NavBar = () => {
           <CloseIcon />
         </button>
         <a href="/">Inicio</a>
-        <div onClick={handleClickDropMenu} className="z-10 cursor-pointer ">
-          Productos
-          <ul className={dropMenu}>
-            <li className="py-2  pl-1 pr-2">
-              <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
-            </li>
-            <li className="py-2 pl-1 pr-2">
-              <NavLink to="/category/kits">Kits</NavLink>
-            </li>
-            <li className="py-2 pl-1 pr-2">
-              <NavLink to="/category/cotillones">Cotillones</NavLink>
-            </li>
-            <li className="py-2 pl-1 pr-2">Indumentaria</li>
-            <li className="py-2 pl-1 pr-2">Papeleria</li>
-            <li className="py-2 pl-1 pr-2">Otros</li>
-          </ul>
+
+        <div className="flex">
+          <NavLink to="/category">Productos</NavLink>
+          <div
+            onClick={handleClickDropMenu}
+            className="z-10 mt-2 cursor-pointer pl-5"
+          >
+            <BiChevronRight className={click ? "rotate-0" : "rotate-90"} />
+            <ul className={dropMenu}>
+              <li className="py-2  pl-1 pr-2">
+                <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">
+                <NavLink to="/category/kits">Kits</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">
+                <NavLink to="/category/cotillones">Cotillones</NavLink>
+              </li>
+              <li className="py-2 pl-1 pr-2">Indumentaria</li>
+              <li className="py-2 pl-1 pr-2">Papeleria</li>
+              <li className="py-2 pl-1 pr-2">Otros</li>
+            </ul>
+          </div>
         </div>
-        <a href="/">Contacto</a>
-        <a href="/">Sobre nosotros</a>
+
+        <NavLink to="/contacto"> Contacto</NavLink>
+        <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
       <div className=" mr-auto ">
         <LogoIcon />
