@@ -1,7 +1,7 @@
 import MainSlider from "../../components/MainSlider/MainSlider";
 import ItemList from "../../components/ItemList/ItemList";
 import NavSearchIcon from "../../components/icons/NavSearchIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getFirestore,
   collection,
@@ -16,12 +16,15 @@ const Home = () => {
   const db = getFirestore();
   const queryCollection = collection(db, "items");
 
-  getDocs(query(queryCollection, where("category", "==", "principales"))).then(
-    (res) =>
-      setProducts(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-  );
+  useEffect(() => {
+    getDocs(query(queryCollection, where("category", "==", "principales"))).then(
+      (res) =>
+        setProducts(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+    )
+  },[])
+
   return (
     <div>
       <NavSearchIcon navBar={false} />

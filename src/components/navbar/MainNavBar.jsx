@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const handleOpenMenu = () => {
     setNavClass(
-      "absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
+      "absolute z-10  text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
     );
   };
 
@@ -37,13 +37,14 @@ const NavBar = () => {
 
   const [click, setClick] = useState(false);
 
-  const handleClickDropMenu = () => {
-    setClick(!click);
-    click
+  const handleClickDropMenu = async () => {
+    await setClick(!click);
+    !click
       ? setDropMenu(
           " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
       : setDropMenu("hidden");
+
   };
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -55,18 +56,15 @@ const NavBar = () => {
         <img src={menuIcon} alt="" />
       </button>
       <nav className={navClass}>
-        <button onClick={handleCloseMenu} className="mb-5 md:hidden">
+        <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <a href="/">Inicio</a>
+        <NavLink to="/home">Inicio</NavLink>
 
-        <div className="flex">
+        <div className="flex md:pl-5 ">
           <NavLink to="/category">Productos</NavLink>
-          <div
-            onClick={handleClickDropMenu}
-            className="z-10 mt-2 cursor-pointer pl-5"
-          >
-            <BiChevronRight className={click ? "rotate-0" : "rotate-90"} />
+          <div className="z-10 mt-1 cursor-pointer ">
+            <BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />
             <ul className={dropMenu}>
               <li className="py-2  pl-1 pr-2">
                 <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
@@ -84,7 +82,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <NavLink to="/contacto"> Contacto</NavLink>
+        <NavLink to="/contact"> Contacto</NavLink>
         <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
       <div className=" mr-auto ">

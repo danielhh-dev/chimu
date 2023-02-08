@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/UseCartContext";
 
 const ProductDetail = ({ product }) => {
-  console.log(product);
+  
   const { addToCart } = useContext(CartContext);
   return (
     <section className="container mx-auto mb-4 px-4">

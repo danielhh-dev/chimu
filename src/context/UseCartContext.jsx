@@ -7,8 +7,9 @@ const UseCartContext = ({ children }) => {
 
   /* ------------------------------------Agregar al carrito------------------------------ */
   const addToCart = (dataProduct, contador) => {
+    
     const item = cart.find((prod) => prod.id === dataProduct.id); // se crea si el elemento ya esta en el carrito
-    console.log("desde context", dataProduct);
+    
     if (item) {
       // existe item?
       if (contador > 1) {
@@ -46,12 +47,25 @@ const UseCartContext = ({ children }) => {
 
   const clear = () => setCart([]);
 
+  const discountByOne = (prodId) => {
+      const itemInCart = cart.find(prod => prod.id == prodId)
+        
+      if(itemInCart.quantity === 1){
+          setCart(cart.filter( prod => prod.id !== itemInCart.id))
+      }
+      else{
+          itemInCart.quantity--;               
+          setCart([...cart]) // aca solo seteo el cart porque cuando modifique la cantidad se va actualizar en carrito
+      }
+  }
+
   const dataProvide = {
     cart,
     setCart,
     addToCart,
     deleteToCart,
     clear,
+    discountByOne
   };
 
   return (

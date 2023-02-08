@@ -11,16 +11,14 @@ const MainListContainer = () => {
   const getProduct = async () => {
     const fullCollection = collection(db, "items");
     const dataDoc = await getDocs(fullCollection);
+
     const listProduct = dataDoc.docs.map((product) => {
       let item = product.data();
       item.id = product.id;
-      console.log(item);
       return item;
     });
 
-    const filterByCategory = listProduct.filter(
-      (item) => item.category == category
-    );
+    const filterByCategory = listProduct.filter(item => item.category == category);
 
     if (category) {
       return filterByCategory;
@@ -30,13 +28,14 @@ const MainListContainer = () => {
   };
 
   useEffect(() => {
-    getProduct().then((res) => setProducts(res));
+    getProduct()
+                .then((res) => setProducts(res));
   }, [category]);
 
   return (
     <>
-      <div>ItemList</div>
-      <ItemList products={products} />
+      <h1>{category ?category: 'Productos'}</h1> 
+      <ItemList products={products} title={category} />
     </>
   );
 };

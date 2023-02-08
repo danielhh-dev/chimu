@@ -57,10 +57,11 @@ const ContactPage = () => {
           <textarea
             className="h-24 rounded bg-rosa-claro"
             type="text"
-            name=""
+            name="a"
             id=""
+            defaultValue='asd'
           >
-            asddassdasdasdasdasdasd
+            
           </textarea>
         </div>
         <button className="my-6 h-10 w-1/2 rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/3">

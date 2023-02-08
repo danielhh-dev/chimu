@@ -1,22 +1,8 @@
 import { useState } from "react";
 import NextIcon from "../../components/icons/NextIcon";
 import PreviousIcon from "../../components/icons/PreviousIcon";
-import imgProduct2 from "../../assets/imagen-1.jpg";
 
-import imgProduct1 from "../../assets/imagen-5.jpg";
-
-import imgProduct3 from "../../assets/imagen-2.jpg";
-import imgProduct4 from "../../assets/imagen-3.jpg";
-import imgProduct5 from "../../assets/imagen-4.jpg";
-
-const ARRAY_IMGS = [
-  imgProduct1,
-  imgProduct3,
-  imgProduct4,
-  imgProduct5,
-]; /* Esto queda afuera porque no quiero que se renderice de nuevo */
-
-const SliderProduct = ({ images }) => {
+const SliderProduct = ( {images} ) => {
   const [index, setIndex] = useState(0);
 
   const handleClickNext = () => {
