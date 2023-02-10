@@ -5,7 +5,7 @@ import PreviousIcon from "../../components/icons/PreviousIcon";
 const SliderProduct = ( {images} ) => {
   const [index, setIndex] = useState(0);
 
-  const handleClickNext = () => {
+  const handleClickNext =  () => {
     if (index === images.length - 1) {
       setIndex(0);
     } else {
@@ -13,7 +13,7 @@ const SliderProduct = ( {images} ) => {
     }
   };
 
-  const handleClickPrev = () => {
+  const handleClickPrev =  () => {
     if (index === 0) {
       setIndex(images.length - 1);
     } else {
@@ -26,7 +26,7 @@ const SliderProduct = ( {images} ) => {
       <div className="relative">
         <div className="absolute top-1/2 left-0 flex w-full -translate-y-1/2 justify-between px-2 ">
           <button
-            onClick={handleClickPrev}
+            onClick={ handleClickPrev}
             className="grid h-10 w-10 place-items-center"
           >
             <PreviousIcon />

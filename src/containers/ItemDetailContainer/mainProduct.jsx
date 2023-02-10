@@ -20,6 +20,7 @@ const MainProduct = () => {
     const queryRef = doc(db, "items", id);
     const dataDoc = await getDoc(queryRef);
     let dbProduct = dataDoc.data();
+    dbProduct.id = id; // importante para asignarle un id y asi puede trabajar el carrito
     return dbProduct;
   };
 
@@ -44,8 +45,10 @@ const MainProduct = () => {
 
   const { addToCart } = useContext(CartContext);
   // agregar al carrito desde Detail
+
   const onAdd = () => {
     addToCart(product, contador);
+    console.log('onAdd',product)
   };
   return (
     <>

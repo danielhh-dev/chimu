@@ -60,7 +60,7 @@ const CartModal = () => {
             </span>
             <button className="w-full rounded-md bg-slate-300 py-4">
               <NavLink to="/order">Hacer pedido</NavLink>
-              
+
             </button>
           </div>
         )}
