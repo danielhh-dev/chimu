@@ -52,9 +52,9 @@ const MainSlider = () => {
   };
 
   return (
-    <div ref={slideRef} className="relative w-full select-none">
+    <div ref={slideRef} className=" z-0 mt-20 w-full select-none">
       <div className=" aspect-w-16 aspect-h-9 ">
-        <img src={featuredProducts[currentIndex]} alt="" /> 
+        <img src={featuredProducts[currentIndex]} alt="" />
       </div>
 
       <div className="absolute top-1/2 flex w-full -translate-y-1/2 transform items-center justify-between px-3">

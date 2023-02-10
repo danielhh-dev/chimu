@@ -1,7 +1,7 @@
 import MainSlider from "../../components/MainSlider/MainSlider";
-import ItemList from "../../components/ItemList/ItemList";
+import MainListContainer from "../../containers/MainContainer/MainListContainer";
 import NavSearchIcon from "../../components/icons/NavSearchIcon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   getFirestore,
   collection,
@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 
 const Home = () => {
+  const title = "Conocé nuestros productos";
   const [products, setProducts] = useState([]);
 
   const db = getFirestore();
@@ -30,7 +31,7 @@ const Home = () => {
     <div>
       <NavSearchIcon navBar={false} />
       <MainSlider />
-      <ItemList products={products} />
+      <MainListContainer title={title} />
     </div>
   );
 };

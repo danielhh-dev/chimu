@@ -15,12 +15,11 @@ const TazasBotellas = () => {
   const queryCollection = collection(db, "items");
 
   useEffect(() => {
-    getDocs(
-      query(queryCollection, where("category", "==", "tazasbotellas"))
-    ).then((res) =>
-      setProducts(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
+    getDocs(query(queryCollection, where("category", "==", "tazas"))).then(
+      (res) =>
+        setProducts(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
     );
   }, []);
   return (

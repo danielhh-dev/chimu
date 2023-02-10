@@ -18,7 +18,7 @@ const NavBar = () => {
   const { cart } = useContext(CartContext);
 
   const [navClass, setNavClass] = useState(
-    "hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 "
+    "hidden p-8 text-white md:flex  md:gap-4  md:p-0 "
   );
 
   const handleOpenMenu = () => {
@@ -29,7 +29,7 @@ const NavBar = () => {
 
   const handleCloseMenu = () => {
     setNavClass(
-      "hidden p-8  md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-2  text-white "
+      "hidden p-8  md:flex  md:h-auto  md:gap-4 md:static md:p-2  text-white "
     );
   };
 
@@ -49,9 +49,9 @@ const NavBar = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
-    <header className=" relative flex items-center justify-between bg-rosa-oscuro p-5 ">
+    <header className=" flex items-center justify-between bg-rosa-oscuro p-5 ">
       {/* podria poner un selecSelect */}
-      <button className="mr-auto md:hidden" onClick={handleOpenMenu}>
+      <button className=" md:hidden" onClick={handleOpenMenu}>
         <img src={menuIcon} alt="" />
       </button>
       <nav className={navClass}>
@@ -87,9 +87,8 @@ const NavBar = () => {
         <NavLink to="/contacto"> Contacto</NavLink>
         <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
-      <div className=" mr-auto ">
-        <LogoIcon />
-      </div>
+
+      <LogoIcon />
 
       <div className=" mx-2 flex gap-4">
         <div className="hidden md:block">
