@@ -52,7 +52,7 @@ const MainSlider = () => {
   };
 
   return (
-    <div ref={slideRef} className=" z-0 mt-20 w-full select-none">
+    <div ref={slideRef} className=" z-0 mt-3 w-full select-none">
       <div className=" aspect-w-16 aspect-h-9 ">
         <img src={featuredProducts[currentIndex]} alt="" />
       </div>

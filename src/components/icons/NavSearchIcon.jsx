@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { NavLink } from "react-router-dom";
 
 const NavSearchIcon = (props) => {
   const [search, setSearch] = useState("");
@@ -20,6 +21,7 @@ const NavSearchIcon = (props) => {
 
   //funcion de busqueda
   const searcher = (e) => {
+    console.log(e)
     setSearch(e.target.value.toLowerCase());
   };
 
@@ -59,17 +61,26 @@ const NavSearchIcon = (props) => {
             onChange={searcher}
             type="text"
             id="search-navbar"
-            className="block w-full rounded-3xl border border-gray-300 bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400"
+            className="block w-full rounded-3xl  bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400"
             placeholder="¿Qué estas buscando?"
           />
+          <table className="absolute  w-9/12 ml-6 border-separate border-spacing-2 z-10 md:-ml-28 w-80">
+          <tbody>
+
           {search &&
             results.map((product) => (
-              <table className="relative">
-                <tr key={product.id}>
-                  <td>{product.name}</td>
+                <tr key={product.id} className="relative bg-rosa-claro mt-6 ">
+                  <td className=" p-3 rounded-md">
+                    <NavLink to={`/detail/${product.id}`}  className="flex items-center">
+                      <img src={product.image[0]} className="w-16" alt="" />
+                      <p className="ml-8">{product.name}</p>
+                    </NavLink>
+                  </td>
                 </tr>
-              </table>
-            ))}
+            ))
+          }
+          </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -78,33 +89,3 @@ const NavSearchIcon = (props) => {
 
 export default NavSearchIcon;
 
-{
-  /* <div className="search">
-  <div className="searchInputs">
-    <input
-      type="text"
-      placeholder={placeholder}
-      value={wordEntered}
-      onChange={handleFilter}
-    />
-    <div className="searchIcon">
-      {filteredData.length === 0 ? (
-        <SearchIcon />
-      ) : (
-        <CloseIcon id="clearBtn" onClick={clearInput} />
-      )}
-    </div>
-  </div>
-  {filteredData.length != 0 && (
-    <div className="dataResult">
-      {filteredData.slice(0, 15).map((value, key) => {
-        return (
-          <a className="dataItem" href={value.link} target="_blank">
-            <p>{value.title} </p>
-          </a>
-        );
-      })}
-    </div>
-  )}
-</div>; */
-}

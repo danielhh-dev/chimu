@@ -50,7 +50,7 @@ const NavBar = () => {
 
   return (
     <header className=" flex items-center justify-between bg-rosa-oscuro p-5 ">
-      {/* podria poner un selecSelect */}
+    
       <button className=" md:hidden" onClick={handleOpenMenu}>
         <img src={menuIcon} alt="" />
       </button>
@@ -87,8 +87,10 @@ const NavBar = () => {
         <NavLink to="/contacto"> Contacto</NavLink>
         <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
+      <NavLink to="/">
 
       <LogoIcon />
+      </NavLink>
 
       <div className=" mx-2 flex gap-4">
         <div className="hidden md:block">
