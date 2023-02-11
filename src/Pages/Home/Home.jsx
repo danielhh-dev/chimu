@@ -28,7 +28,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="md:w-9/12 m-auto ">
       <NavSearchIcon navBar={false} />
       <MainSlider />
       <MainListContainer title={title} />

@@ -20,6 +20,7 @@ const MainProduct = () => {
     const queryRef = doc(db, "items", id);
     const dataDoc = await getDoc(queryRef);
     let dbProduct = dataDoc.data();
+    dbProduct.id = id;
     return dbProduct;
   };
 

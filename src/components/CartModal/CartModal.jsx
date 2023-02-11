@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/UseCartContext";
 import imgcart from "../../assets/imagen-1.jpg";
 import DeleteIcon from "../icons/DeleteIcon";
+import { NavLink } from "react-router-dom";
 
 const CartModal = () => {
   const { cart, deleteToCart } = useContext(CartContext);
@@ -46,10 +47,10 @@ const CartModal = () => {
         {cart.length == 0 ? (
           <span className="flex p-4 ">
             No hay items,{" "}
-            <a className="underline " href="/">
-              {" "}
-              ver productos
-            </a>
+            <NavLink className="underline " to="/category">
+                {" "}
+                ver productos
+                </NavLink>
           </span>
         ) : (
           <div className="px-6 pb-8">
@@ -58,8 +59,8 @@ const CartModal = () => {
               {cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0)}
             </span>
             <button className="w-full rounded-md bg-slate-300 py-4">
-              {" "}
-              Hacer pedido
+              <NavLink to="/order">Hacer pedido</NavLink>
+
             </button>
           </div>
         )}

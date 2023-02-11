@@ -98,7 +98,9 @@ const NavBar = () => {
         </div>
         <button
           className="relative flex items-center justify-center"
-          onClick={() => setIsOpenModal(!isOpenModal)}
+          onClick={() => {
+            setIsOpenModal(!isOpenModal);
+          }}
         >
           {cart.length > 0 && (
             <span className=" absolute -top-4 text-xs font-bold text-white md:-top-2">

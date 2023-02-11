@@ -2,9 +2,9 @@ import Item from "../Item/Item";
 
 const ItemList = ({ products }) => {
   return (
-    <div className=" m-auto  flex w-9/12 flex-wrap">
+    <div className=" flex flex-wrap gap-8 items-center justify-between">
       {products.map((product) => (
-        <div className="mt-24" key={product.id}>
+        <div  key={product.id}>
           <Item {...product} />
         </div>
       ))}

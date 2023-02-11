@@ -37,7 +37,7 @@ const NavSearchIcon = (props) => {
   console.table(results);
 
   return (
-    <div className="grid-row-1  my-2 mx-auto grid w-[95%] ">
+    <div className="  my-2 mx-auto grid-row-1 grid w-[95%] ">
       <div className={props.navBar ? `flex  md:order-2` : "md:hidden"}>
         <div className={`relative  md:block`}>
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">

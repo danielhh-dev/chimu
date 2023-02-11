@@ -34,7 +34,7 @@ const MainListContainer = ({ title }) => {
 
   return (
     <>
-      <div>{title}</div>
+      <div className="m-auto w-max my-14 text-3xl font-bold">{title}</div>
       <ItemList products={products} />
     </>
   );
