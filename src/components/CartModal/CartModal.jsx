@@ -9,13 +9,13 @@ const CartModal = () => {
 
   return (
     <section className="absolute  top-[125%] left-0 z-10 w-full md:left-full md:top-full md:max-w-md md:-translate-x-full ">
-      <div className="mx-4 rounded-md bg-gray-200">
+      <div className="mx-4 rounded-md bg-rosa-claro">
         <h4 className="px-6 py-8 text-center text-lg font-bold">Carrito</h4>
         {cart.map((item, index) => {
           console.log("desde cartmodal", item);
           return (
             <div key={index}>
-              <div className="w-full  border border-solid border-black"></div>
+              <div className="w-full  border border-solid border-rosa-oscuro"></div>
 
               <div className="grid grid-cols-[1fr_4fr_1fr] items-center gap-6 px-6 py-4">
                 <img src={item.image[0]} alt="" className="rounded-md" />
@@ -53,16 +53,19 @@ const CartModal = () => {
                 </NavLink>
           </span>
         ) : (
+          <>
+          <div className="w-full  border border-solid border-rosa-oscuro my-4"></div>
           <div className="px-6 pb-8">
             <span className="flex justify-end text-lg font-bold">
               Total: $
               {cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0)}
             </span>
-            <button className="w-full rounded-md bg-slate-300 py-4">
-              <NavLink to="/order">Hacer pedido</NavLink>
+            <button className="w-full rounded-md bg-rosa-oscuro py-4 my-2 text-white text-lg">
+              <NavLink to="/order">Ver carrito</NavLink>
 
             </button>
           </div>
+          </>
         )}
       </div>
     </section>

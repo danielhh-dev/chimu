@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, redirect } from "react-router-dom";
 import FlechaAbajo from "../components/icons/FlechaAbajo";
 import FlechaArriba from "../components/icons/FlechaArriba";
 import { CartContext } from "../context/UseCartContext";
@@ -59,9 +59,11 @@ const OrderPage = () => {
         wappGenerate(newOrder)
     }
 
-    const sendData = (e) => {
+    const sendData = async (e) => {
         e.preventDefault()
-        orderGenerate({...order,buyer:formData});
+        await orderGenerate({...order,buyer:formData});
+        setTimeout( () => location.href = link , 2000 )
+
     }
 
     const wappGenerate = (order) => { // esto me tiene que dar la url
@@ -97,7 +99,7 @@ ${order.items.map( item => {
     }
 
     return(
-        <section className="w-[95%] mx-auto m-8 grid ">
+        <section className="w-[95%] mx-auto m-8 grid h-[60vh] md:h-[58vh] lg:h-full ">
             
         <div className="mx-4 rounded-md ">
             <h4 className="px-6 py-8 font-bold my-6 text-center text-3xl">Tu pedido</h4>
@@ -111,18 +113,18 @@ ${order.items.map( item => {
                         <img src={item.image[0]} alt="" className="rounded-md" />
 
                         <div>
-                            <h6>{item.name}</h6>
+                            <h6 className="text-2xl font-bold">{item.name}</h6>
                             <div>
-                                <span>Cantidad: {item.quantity}</span> <br />
-                                <span>ARS {item.price}</span> <br></br>
-                                <span>Monto</span>
+                                <span className="text-xl">Cantidad: {item.quantity}</span> <br />
+                                <span className="text-xl">ARS {item.price}</span> <br></br>
+                                <span className="text-xl">Diseño:</span>
                             </div>
                         </div>
 
                         <div className="pt-12 flex flex-col items-end">
                             
                             <div className="mx-4 mb-4   flex  w-40 flex-col md:col-span-2 md:mx-0  ">
-                                <h6 className="col-span-2">Cantidad</h6>
+                                <h6 className="col-span-2 text-xl">Cantidad</h6>
                                 <div className="flex justify-center gap-11  rounded-lg bg-rosa-claro p-2">
                                     <span>{item.quantity}</span>
                                     <div className="flex flex-col gap-1 ">
@@ -137,10 +139,11 @@ ${order.items.map( item => {
                             </div>
                                 <button
                                     onClick={() => deleteToCart(item.id)}
+                                    className ='text-xl'
                                 >
                                 Eliminar
                                 </button>
-                                <span className="font-bold">
+                                <span className="font-bold text-xl">
                                     ARS{item.price * item.quantity}
                                 </span>
 
@@ -159,16 +162,19 @@ ${order.items.map( item => {
             </span>
             )
             :(
+                <>
+                <div className="w-full  border border-solid border-black my-2"></div>
             <div className="px-6 pb-8 pt-8">
-                <span className="flex justify-end text-lg font-bold">
+                <span className="flex justify-end text-xl font-bold">
                 Total: ${cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0)}
                 </span>
-                <button onClick={()=>setTimeout(() => {setShowForm(true)}, 2000)} className="my-6 h-10 w-1/2 mx-auto text-xl rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/3 grid items-center justify-center"  >Hacer compra</button>
+                <button onClick={()=>setTimeout(() => {setShowForm(true)}, 2000)} className="my-4 h-10 w-1/2 mx-auto text-xl rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/3 grid items-center justify-center"  >Siguiente</button>
                 
             </div>
+                </>
             )}
         </div>
-        {showForm && 
+        { showForm &&
         <div>
         <h1 className="my-6 text-center text-3xl">Tus datos</h1>
 
@@ -264,9 +270,10 @@ ${order.items.map( item => {
             </div>
             <button type="submit"  className="my-6 h-10 w-1/2 text-xl rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/3 grid items-center justify-center"  >Hacer pedido</button>
         </form>
-        </div>}
+        </div>
+    }
         
-        <a href={link} target= '_blank'>aaaaaa</a>
+        
         
 
     </section>

@@ -32,9 +32,9 @@ const MainListContainer = () => {
                 .then((res) => setProducts(res));
   }, [category]);
 
-  return (
+  return ( 
     <>
-      <h1>{category ?category: 'Productos'}</h1> 
+      <h1 className="text-center text-2xl my-4">{category ? category.toUpperCase(): 'PRODUCTOS'}</h1> 
       <ItemList products={products} title={category} />
     </>
   );
