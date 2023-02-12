@@ -40,7 +40,7 @@ const NavSearchIcon = (props) => {
     <div className="  my-2 mx-auto grid-row-1 grid w-[95%] ">
       <div className={props.navBar ? `flex  md:order-2` : "md:hidden"}>
         <div className={`relative  md:block`}>
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center pl-3">
             <svg
               className="h-5 w-5 text-gray-500"
               aria-hidden="true"
@@ -61,7 +61,7 @@ const NavSearchIcon = (props) => {
             onChange={searcher}
             type="text"
             id="search-navbar"
-            className="block w-full rounded-3xl  bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400"
+            className="block w-full rounded-3xl  bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400 md:w-80 m-4"
             placeholder="¿Qué estas buscando?"
           />
           <table className="absolute  w-9/12 ml-6 border-separate border-spacing-2 z-10 md:-ml-28 w-80">

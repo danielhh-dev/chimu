@@ -89,10 +89,10 @@ ${order.items.map( item => {
     
     • Total del Pedido: $ ${order.total}
 `
-    let param = encodeURIComponent(msg);
+    let orderText = encodeURIComponent(msg);
     
-    let url = `https://api.whatsapp.com/send/?phone=549${order.buyer.phone}&text=${param}`;
-    console.log(url)
+    let url = `https://api.whatsapp.com/send/?phone=549${order.buyer.phone}&text=${orderText}`;
+    
     Setlink(url)
     }
 
@@ -166,9 +166,7 @@ ${order.items.map( item => {
                 <button onClick={()=>setTimeout(() => {setShowForm(true)}, 2000)} className="my-6 h-10 w-1/2 mx-auto text-xl rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/3 grid items-center justify-center"  >Hacer compra</button>
                 
             </div>
-            
             )}
-            
         </div>
         {showForm && 
         <div>

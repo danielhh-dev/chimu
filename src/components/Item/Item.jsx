@@ -5,7 +5,7 @@ const Item = ({ image, name, price, id }) => {
     <NavLink to={`/detail/${id}`} >
       <img src={image} alt="" className="w-40" />
       <p className="card-text">{name}</p>
-      <p className="card-text">{price + 1}</p>
+      <p className="card-text">ARS {price}</p>
     </NavLink>
   );
 };

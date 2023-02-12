@@ -37,19 +37,21 @@ const NavBar = () => {
 
   const [click, setClick] = useState(false);
 
-  const handleClickDropMenu = () => {
-    setClick(!click);
-    click
+  const handleClickDropMenu = async () => {
+    await setClick(!click);
+    !click
       ? setDropMenu(
           " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
       : setDropMenu("hidden");
+
   };
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
+
   return (
-    <header className=" flex items-center justify-between bg-rosa-oscuro p-5 ">
+    <header className=" flex items-center justify-between bg-rosa-oscuro p-5 md:h-20 ">
     
       <button className=" md:hidden" onClick={handleOpenMenu}>
         <img src={menuIcon} alt="" />
@@ -66,10 +68,9 @@ const NavBar = () => {
             onClick={handleClickDropMenu}
             className="z-10 mt-2 cursor-pointer pl-5"
           >
-            <BiChevronRight className={click ? "rotate-0" : "rotate-90"} />
-            <ul className={dropMenu}>
-              <li className="py-2  pl-1 pr-2">
-                <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
+<BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />            <ul className={dropMenu}>
+            <li className="py-2  pl-1 pr-2">
+                <NavLink to="/category/tazas">Tazas/Botellas</NavLink>
               </li>
               <li className="py-2 pl-1 pr-2">
                 <NavLink to="/category/kits">Kits</NavLink>
