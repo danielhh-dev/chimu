@@ -1,15 +1,13 @@
-import FlechaAbajo from "../../components/icons/FlechaAbajo";
-import FlechaArriba from "../../components/icons/FlechaArriba";
 
 const ProductSpecs = () => {
   return (
-    <div className="mx-4 mb-6 grid grid-cols-2 md:mx-0">
-      <div className="col-span-3 mb-5 w-1/2 ">
+    <div className=" mb-6 grid grid-cols-2 md:mx-0">
+      <div className="col-span-3 mb-5 ">
         <label
           htmlFor="nameOfTaza"
           className="form-label mb-2 inline-block text-gray-700"
         >
-          Elige tu diseño{" "}
+          Elige tu diseño
         </label>
         <select
           className="form-select m-0
@@ -36,7 +34,7 @@ const ProductSpecs = () => {
         </select>
       </div>
 
-      <div className="col-span-3 mb-5 w-1/2 xl:w-96">
+      <div className="col-span-3 mb-5  ">
         <label
           htmlFor="exampleFormControlTextarea1"
           className="form-label mb-2 inline-block text-gray-700"

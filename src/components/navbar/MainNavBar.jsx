@@ -67,7 +67,7 @@ const NavBar = () => {
             <BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />
             <ul className={dropMenu}>
               <li className="py-2  pl-1 pr-2">
-                <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
+                <NavLink to="/category/tazas">Tazas/Botellas</NavLink>
               </li>
               <li className="py-2 pl-1 pr-2">
                 <NavLink to="/category/kits">Kits</NavLink>
