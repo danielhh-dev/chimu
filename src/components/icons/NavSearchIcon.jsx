@@ -21,7 +21,6 @@ const NavSearchIcon = (props) => {
 
   //funcion de busqueda
   const searcher = (e) => {
-    console.log(e)
     setSearch(e.target.value.toLowerCase());
   };
 
@@ -34,10 +33,8 @@ const NavSearchIcon = (props) => {
     getProducts();
   }, []);
 
-  console.table(results);
-
   return (
-    <div className="  my-2 mx-auto grid-row-1 grid w-[95%] ">
+    <div className="  grid-row-1 my-2 mx-auto grid w-[95%] ">
       <div className={props.navBar ? `flex  md:order-2` : "md:hidden"}>
         <div className={`relative  md:block`}>
           <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center pl-3">
@@ -61,24 +58,26 @@ const NavSearchIcon = (props) => {
             onChange={searcher}
             type="text"
             id="search-navbar"
-            className="block w-full rounded-3xl  bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400 md:w-80 m-4"
+            className="m-4 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
             placeholder="¿Qué estas buscando?"
           />
-          <table className="absolute  w-9/12 ml-6 border-separate border-spacing-2 z-10 md: w-80">
-          <tbody>
-          {search &&
-            results.map((product) => (
-                <tr key={product.id} className="relative bg-rosa-claro mt-6 ">
-                  <td className=" p-3 rounded-md">
-                    <NavLink to={`/detail/${product.id}`}  className="flex items-center">
-                      <img src={product.image[0]} className="w-16" alt="" />
-                      <p className="ml-8">{product.name}</p>
-                    </NavLink>
-                  </td>
-                </tr>
-            ))
-          }
-          </tbody>
+          <table className="md:  absolute z-10 ml-6 w-9/12 w-80 border-separate border-spacing-2">
+            <tbody>
+              {search &&
+                results.map((product) => (
+                  <tr key={product.id} className="relative mt-6 bg-rosa-claro ">
+                    <td className=" rounded-md p-3">
+                      <NavLink
+                        to={`/detail/${product.id}`}
+                        className="flex items-center"
+                      >
+                        <img src={product.image[0]} className="w-16" alt="" />
+                        <p className="ml-8">{product.name}</p>
+                      </NavLink>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
           </table>
         </div>
       </div>
@@ -87,4 +86,3 @@ const NavSearchIcon = (props) => {
 };
 
 export default NavSearchIcon;
-

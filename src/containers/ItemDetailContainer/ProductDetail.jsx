@@ -9,13 +9,13 @@ import { uploadFile } from "../../firebase/config";
 const ProductDetail = ({ product }) => {
   const [contador, setContador] = useState(1);
   //! storage
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState(null);
 
   // aumenta contador
   const addNumber = () => {
     setContador(contador + 1);
   };
-  
+
   //disminuye contador
   const deleteNumber = () => {
     if (contador !== 1) setContador(contador - 1);
@@ -25,20 +25,20 @@ const ProductDetail = ({ product }) => {
   // agregar al carrito desde Detail
 
   const onAdd = () => {
+    handleUpload();
     addToCart(product, contador);
   };
 
   //!storage
-  const handleSubmit = async(e) => {
-    e.preventDefault()
+  const handleUpload = async () => {
     try {
-      //* result es la url de la imagen 
-      const result = await uploadFile(file)
+      const imageURL = await uploadFile(file);
+      product = { ...product, uploadedImage: imageURL };
+      // console.log(imageURL);
     } catch (error) {
-      console.log(error)
-      alert("Fallo interno, intente más tarde")
+      alert("Fallo interno, intente más tarde");
     }
-  }
+  };
 
   return (
     <section className="container mx-auto mb-4 px-4">
@@ -51,8 +51,7 @@ const ProductDetail = ({ product }) => {
       </p>
       <ProductSpecs />
       <div className="grid items-center">
-
-      <div className="flex w-40 flex-col md:col-span-2 md:mx-0 mb-5 ">
+        <div className="mb-5 flex w-40 flex-col md:col-span-2 md:mx-0 ">
           <h6 className="col-span-2">Cantidad</h6>
           <div className="flex justify-center gap-11   rounded-lg bg-rosa-claro p-2">
             <span>{contador}</span>
@@ -65,22 +64,24 @@ const ProductDetail = ({ product }) => {
               </button>
             </div>
           </div>
-          //! storage
-          <form onSubmit={handleSubmit}>
-          <input type="file" onChange={(e) => {
-            console.log(e.target.files[0])           
-          }} />
-          <button>Subir imagen</button>
-          </form>
+          {/* {!storage} */}
+          <input
+            id="upload"
+            name="upload"
+            type="file"
+            className="invisible"
+            onChange={(e) => setFile(e.target.files[0])}
+            required
+          />
+          <label htmlFor="upload">Carga tu diseño</label>
+        </div>
+        <button
+          className=" mb-10 w-full rounded-md bg-slate-400 py-3  md:col-span-2"
+          onClick={() => onAdd()}
+        >
+          Añadir al carrito
+        </button>
       </div>
-      <button
-            className=" mb-10 w-full rounded-md bg-slate-400 py-3  md:col-span-2"
-            onClick={() => onAdd()}
-          >
-            Añadir al carrito
-      </button>
-      </div>
-      
     </section>
   );
 };
