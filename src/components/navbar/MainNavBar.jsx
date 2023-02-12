@@ -85,7 +85,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <NavLink to="/contacto"> Contacto</NavLink>
+        <NavLink to="/contact"> Contacto</NavLink>
         <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
       <NavLink to="/">
