@@ -15,7 +15,7 @@ const OrderPage = () => {
         email:'',
         phone:'',
         adress:'',
-        coments:'',
+        comments:'',
         pago:'',
         entrega:''
     })
@@ -26,7 +26,7 @@ const OrderPage = () => {
             email:'',
             phone:'',
             adress:'',
-            coments:'',
+            comments:'',
             pago:'',
             entrega:''
         },
@@ -50,23 +50,22 @@ const OrderPage = () => {
         /* Promesa para que guarde order en ordersCollection*/
 
         addDoc(ordersCollection,newOrder)
-                                        .then(res => {
-                                            
-                                            setShowForm(false)
-                                        })
+                                        .then(setShowForm(false))
                                         .catch( error => console.error("Error al realizar la compra"+error))
-                                        /* .finally(()=>clear()) */
-        wappGenerate(newOrder)
+                                        
+        
     }
 
     const sendData = async (e) => {
         e.preventDefault()
         await orderGenerate({...order,buyer:formData});
-        setTimeout( () => location.href = link , 2000 )
+        setTimeout( () => {
+            wappGenerate(order).then(res =>location.href = res )
+            } , 2000 )
 
     }
 
-    const wappGenerate = (order) => { // esto me tiene que dar la url
+    const wappGenerate = async (order) => { // esto me tiene que dar la url
         
     let msg = `Hola Chimu! Quiero hacer un pedido, este es el detalle:
     
@@ -95,7 +94,7 @@ ${order.items.map( item => {
     
     let url = `https://api.whatsapp.com/send/?phone=549${order.buyer.phone}&text=${orderText}`;
     
-    Setlink(url)
+    return url
     }
 
     return(
@@ -259,10 +258,10 @@ ${order.items.map( item => {
             <textarea
                 className="h-24 rounded bg-rosa-claro"
                 type="text"
-                name="coments"
+                name="comments"
                 id=""
                 defaultValue='Dejanos un comentario'
-                value={formData.coments}
+                value={formData.comments}
                 onChange = {handleChange}
             >
                 
