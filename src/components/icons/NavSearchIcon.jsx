@@ -64,9 +64,8 @@ const NavSearchIcon = (props) => {
             className="block w-full rounded-3xl  bg-rosa-claro p-2 pl-10 text-sm  text-gray-900  placeholder-gray-400 md:w-80 m-4"
             placeholder="¿Qué estas buscando?"
           />
-          <table className="absolute  w-9/12 ml-6 border-separate border-spacing-2 z-10 md:-ml-28 w-80">
+          <table className="absolute  w-9/12 ml-6 border-separate border-spacing-2 z-10 md: w-80">
           <tbody>
-
           {search &&
             results.map((product) => (
                 <tr key={product.id} className="relative bg-rosa-claro mt-6 ">

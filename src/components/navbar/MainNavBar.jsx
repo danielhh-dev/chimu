@@ -66,9 +66,9 @@ const NavBar = () => {
           <NavLink to="/category">Productos</NavLink>
           <div
             onClick={handleClickDropMenu}
-            className="z-10 mt-2 cursor-pointer pl-5"
+            className="z-10 mt-1 cursor-pointer "
           >
-<BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />            <ul className={dropMenu}>
+            <BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />            <ul className={dropMenu}>
             <li className="py-2  pl-1 pr-2">
                 <NavLink to="/category/tazas">Tazas/Botellas</NavLink>
               </li>
