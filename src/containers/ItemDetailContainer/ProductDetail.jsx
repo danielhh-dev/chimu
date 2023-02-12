@@ -4,9 +4,13 @@ import FlechaAbajo from "../../components/icons/FlechaAbajo";
 import FlechaArriba from "../../components/icons/FlechaArriba";
 
 import ProductSpecs from "./ProductSpecs";
+import { uploadFile } from "../../firebase/config";
 
 const ProductDetail = ({ product }) => {
   const [contador, setContador] = useState(1);
+  //! storage
+  const [file, setFile] = useState(null)
+
   // aumenta contador
   const addNumber = () => {
     setContador(contador + 1);
@@ -23,6 +27,18 @@ const ProductDetail = ({ product }) => {
   const onAdd = () => {
     addToCart(product, contador);
   };
+
+  //!storage
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try {
+      //* result es la url de la imagen 
+      const result = await uploadFile(file)
+    } catch (error) {
+      console.log(error)
+      alert("Fallo interno, intente más tarde")
+    }
+  }
 
   return (
     <section className="container mx-auto mb-4 px-4">
@@ -49,6 +65,13 @@ const ProductDetail = ({ product }) => {
               </button>
             </div>
           </div>
+          //! storage
+          <form onSubmit={handleSubmit}>
+          <input type="file" onChange={(e) => {
+            console.log(e.target.files[0])           
+          }} />
+          <button>Subir imagen</button>
+          </form>
       </div>
       <button
             className=" mb-10 w-full rounded-md bg-slate-400 py-3  md:col-span-2"
