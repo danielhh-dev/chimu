@@ -58,9 +58,10 @@ const OrderPage = () => {
 
     const sendData = async (e) => {
         e.preventDefault()
+        
         await orderGenerate({...order,buyer:formData});
         setTimeout( () => {
-            wappGenerate(order).then(res =>location.href = res )
+            wappGenerate({...order,buyer:formData}).then(res => location.href = res)
             } , 2000 )
 
     }
@@ -93,8 +94,9 @@ ${order.items.map( item => {
     let orderText = encodeURIComponent(msg);
     
     let url = `https://api.whatsapp.com/send/?phone=549${order.buyer.phone}&text=${orderText}`;
-    
+
     return url
+    
     }
 
     return(

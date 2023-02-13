@@ -13,8 +13,10 @@ const ContactPage = () => {
     product:''
 })
 
-const handleChange = (e) => {setFormData( {...formData, [e.target.name]: e.target.value} )}
+const handleChange = (e) => {setFormData( { ...formData ,[e.target.name]: e.target.value } )
 
+console.log('a',formData)
+}
 const query ={
   person:{
       nya: '',
@@ -23,7 +25,6 @@ const query ={
       coments:'',
       product:''
   }
-
 }
 
 const queryGenerate = (newQuery) =>{
@@ -34,9 +35,7 @@ const queryGenerate = (newQuery) =>{
   /* Promesa para que guarde order en ordersCollection*/
 
   addDoc(ordersCollection,newQuery)
-                                  
-                                  
-   
+
 }
 
 const sendData = async (e) => {
@@ -45,7 +44,7 @@ const sendData = async (e) => {
   
   
   setTimeout( () => {
-    wappGenerate(query).then(res =>location.href = res )
+    wappGenerate({...query,person:formData}).then(res =>location.href = res )
     } , 2000 )
 }
 
@@ -64,7 +63,7 @@ Consulta: ${query.person.comments}
 `
   let orderText = encodeURIComponent(msg);
   
-  let url = `https://api.whatsapp.com/send/?phone=549${query.person.phone}&text=${orderText}`;
+  let url = `https://api.whatsapp.com/send/?phone=5492302554639&text=${orderText}`;
   
   
   return url
