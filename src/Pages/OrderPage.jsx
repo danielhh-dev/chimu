@@ -34,7 +34,8 @@ const OrderPage = () => {
             id : product.id,
             name: product.name,
             price: product.price,
-            quantity: product.quantity
+            quantity: product.quantity,
+            modelSelected: product.modelSelected
         })),
 
         total: cart.reduce((acc,prod) => acc + (prod.price*prod.quantity), 0) ,
@@ -77,7 +78,7 @@ ${order.items.map( item => {
     return(`
 �${item.name}
     *Variantes*
-    • ${item.quantity} x Modelo | $${item.price}
+    • ${item.quantity} x ${item.modelSelected} | $${item.price}
 `
         )
     }).join('')}
@@ -102,7 +103,7 @@ ${order.items.map( item => {
     return(
         <section className="w-[95%] mx-auto m-8 grid h-[60vh] md:h-[58vh] lg:h-full ">
             
-        <div className="mx-4 rounded-md ">
+        <div className="mx-4 rounded-md">
             <h4 className="px-6 py-8 font-bold my-6 text-center text-3xl">Tu pedido</h4>
             {cart.map((item, index) => {
             
@@ -118,7 +119,7 @@ ${order.items.map( item => {
                             <div>
                                 <span className="text-xl">Cantidad: {item.quantity}</span> <br />
                                 <span className="text-xl">ARS {item.price}</span> <br></br>
-                                <span className="text-xl">Diseño:</span>
+                                <span className="text-xl">{item.modelSelected && `Diseño:${item.modelSelected}`}</span>
                             </div>
                         </div>
 
