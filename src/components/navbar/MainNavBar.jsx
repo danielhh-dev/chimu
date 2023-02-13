@@ -58,7 +58,7 @@ const NavBar = () => {
         <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <NavLink to="/home">Inicio</NavLink>
+        <NavLink to="/">Inicio</NavLink>
 
         <div className="flex md:pl-5 ">
           <NavLink to="/category">Productos</NavLink>
