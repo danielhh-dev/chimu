@@ -2,23 +2,21 @@ import instagramIcon from "../../assets/icons/instagram.png";
 import facebookIcon from "../../assets/icons/facebook.png";
 import gmailIcon from "../../assets/icons/gmail.png";
 import whatsAppIcon from "../../assets/icons/whatsApp.png";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="  flex h-44 w-full flex-row items-end justify-between  bg-color-verde pl-4 pt-7 pr-5 pb-8 md:pb-5">
+    <footer className="  mt-[180px] flex h-44 w-full flex-row items-end  justify-between bg-color-verde pl-4 pt-7 pr-5 pb-8 md:pb-5">
       <nav className="flex flex-col gap-3 ">
-        <a className="text-sm text-white md:text-lg " href="/">
+        <NavLink to="/" className="text-sm text-white md:text-lg ">
           Inicio
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
-          Productos{" "}
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
+        </NavLink>
+        <NavLink to="/contact" className="text-sm text-white md:text-lg ">
           Contacto
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
+        </NavLink>
+        <NavLink to="/about" className="text-sm text-white md:text-lg ">
           Sobre nosotros
-        </a>
+        </NavLink>
       </nav>
 
       <div>

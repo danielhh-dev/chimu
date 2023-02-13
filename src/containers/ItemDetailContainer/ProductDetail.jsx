@@ -4,13 +4,11 @@ import FlechaAbajo from "../../components/icons/FlechaAbajo";
 import FlechaArriba from "../../components/icons/FlechaArriba";
 
 import ProductSpecs from "./ProductSpecs";
-import { uploadFile } from "../../firebase/config";
 
 const ProductDetail = ({ product }) => {
-  const [contador, setContador] = useState(1);
-  //! storage
-  const [file, setFile] = useState(null);
+  const [modelSelected, setModelSelected] = useState("");
 
+  const [contador, setContador] = useState(1);
   // aumenta contador
   const addNumber = () => {
     setContador(contador + 1);
@@ -25,20 +23,19 @@ const ProductDetail = ({ product }) => {
   // agregar al carrito desde Detail
 
   const onAdd = () => {
-    handleUpload();
-    addToCart(product, contador);
-  };
-
-  //!storage
-  const handleUpload = async () => {
-    try {
-      const imageURL = await uploadFile(file);
-      product = { ...product, uploadedImage: imageURL };
-      // console.log(imageURL);
-    } catch (error) {
-      alert("Fallo interno, intente más tarde");
+    if (!modelSelected) {
+      addToCart(product, contador);
+    } else {
+      product.modelSelected = modelSelected;
+      addToCart(product, contador);
     }
   };
+
+  const handleChangeModel = (e) => {
+    setModelSelected(e.target.value);
+  };
+
+  console.log(modelSelected);
 
   return (
     <section className="container mx-auto mb-4 px-4">
@@ -49,7 +46,81 @@ const ProductDetail = ({ product }) => {
       <p className="col-span-3 mb-5">
         <span>ARS {product.price}</span>
       </p>
-      <ProductSpecs />
+
+      <div className=" mb-6 grid grid-cols-2 md:mx-0">
+        {product.models_designs && (
+          <div className="col-span-3 mb-5 ">
+            <label
+              htmlFor="nameOfTaza"
+              className="form-label mb-2 inline-block text-gray-700"
+            >
+              Elige tu diseño : {modelSelected}
+            </label>
+
+            <select
+              className="form-select m-0
+                                                  block
+                                                  w-full
+                                                  appearance-none
+                                                  rounded
+                                                  border
+                                                  border-solid
+                                                  border-gray-300
+                                                  bg-slate-200 bg-clip-padding bg-no-repeat
+                                                  px-3 py-1.5 text-base
+                                                  font-normal
+                                                  text-gray-700
+                                                  transition
+                                                  ease-in-out
+                                                  focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+              id="nameOfTaza "
+              aria-label="Default select example"
+              name="models"
+              onChange={handleChangeModel}
+            >
+              {product.models_designs.map((m) => {
+                return (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
+
+        <div className="col-span-3 mb-5  ">
+          <label
+            htmlFor="exampleFormControlTextarea1"
+            className="form-label mb-2 inline-block text-gray-700"
+          >
+            Escribe aqui el nombre para tu taza
+          </label>
+          <textarea
+            className="
+                                form-control
+                                m-0
+                                block
+                                w-full
+                                rounded
+                                border
+                                border-solid
+                                border-gray-300
+                                bg-slate-200 bg-clip-padding
+                                px-3 py-1.5 text-base
+                                font-normal
+                                text-gray-700
+                                transition
+                                ease-in-out
+                                focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
+                            "
+            id="exampleFormControlTextarea1"
+            rows="1"
+            placeholder="Nombre"
+          ></textarea>
+        </div>
+      </div>
+
       <div className="grid items-center">
         <div className="mb-5 flex w-40 flex-col md:col-span-2 md:mx-0 ">
           <h6 className="col-span-2">Cantidad</h6>
@@ -64,16 +135,6 @@ const ProductDetail = ({ product }) => {
               </button>
             </div>
           </div>
-          {/* {!storage} */}
-          <input
-            id="upload"
-            name="upload"
-            type="file"
-            className="invisible"
-            onChange={(e) => setFile(e.target.files[0])}
-            required
-          />
-          <label htmlFor="upload">Carga tu diseño</label>
         </div>
         <button
           className=" mb-10 w-full rounded-md bg-slate-400 py-3  md:col-span-2"

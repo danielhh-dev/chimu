@@ -18,18 +18,18 @@ const NavBar = () => {
   const { cart } = useContext(CartContext);
 
   const [navClass, setNavClass] = useState(
-    "hidden p-8 text-white md:flex  md:gap-4  md:p-0 "
+    "hidden p-8 text-white md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-0 "
   );
 
   const handleOpenMenu = () => {
     setNavClass(
-      "absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
+      "absolute z-10  text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
     );
   };
 
   const handleCloseMenu = () => {
     setNavClass(
-      "hidden p-8  md:flex  md:h-auto  md:gap-4 md:static md:p-2  text-white "
+      "hidden p-8  md:flex md:flex-row md:h-auto md:mr-auto md:gap-4 md:static md:p-2  text-white "
     );
   };
 
@@ -44,32 +44,33 @@ const NavBar = () => {
           " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
       : setDropMenu("hidden");
-
   };
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-
   return (
-    <header className=" flex items-center justify-between bg-rosa-oscuro p-5 md:h-20 ">
-    
-      <button className=" md:hidden" onClick={handleOpenMenu}>
+    <header className=" relative flex items-center justify-between bg-rosa-oscuro p-5 ">
+      {/* podria poner un selecSelect */}
+      <button className="mr-auto md:hidden" onClick={handleOpenMenu}>
         <img src={menuIcon} alt="" />
       </button>
       <nav className={navClass}>
-        <button onClick={handleCloseMenu} className="mb-5 md:hidden">
+        <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <a href="/">Inicio</a>
+        <NavLink to="/home">Inicio</NavLink>
 
-        <div className="flex">
+        <div className="flex md:pl-5 ">
           <NavLink to="/category">Productos</NavLink>
-          <div
-            onClick={handleClickDropMenu}
-            className="z-10 mt-1 cursor-pointer "
-          >
-            <BiChevronRight onClick={handleClickDropMenu} className={` text-[1.1rem]  font-extrabold ${click && "rotate-90"}` } />            <ul className={dropMenu}>
-            <li className="py-2  pl-1 pr-2">
+          <div className="z-10 mt-1 cursor-pointer ">
+            <BiChevronRight
+              onClick={handleClickDropMenu}
+              className={` text-[1.1rem]  font-extrabold ${
+                click && "rotate-90"
+              }`}
+            />
+            <ul className={dropMenu}>
+              <li className="py-2  pl-1 pr-2">
                 <NavLink to="/category/tazas">Tazas/Botellas</NavLink>
               </li>
               <li className="py-2 pl-1 pr-2">
@@ -88,10 +89,9 @@ const NavBar = () => {
         <NavLink to="/contact"> Contacto</NavLink>
         <NavLink to="/about"> Sobre nosotros</NavLink>
       </nav>
-      <NavLink to="/">
-
-      <LogoIcon />
-      </NavLink>
+      <div className=" mr-auto ">
+        <LogoIcon />
+      </div>
 
       <div className=" mx-2 flex gap-4">
         <div className="hidden md:block">
