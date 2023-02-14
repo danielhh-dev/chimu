@@ -52,7 +52,7 @@ const MainSlider = () => {
   };
 
   return (
-    <div ref={slideRef} className="w-FIT relative select-none md:-mt-4">
+    <div ref={slideRef} className="m- relative w-fit select-none md:-mt-4">
       <div className=" aspect-w-16 aspect-h-9 ">
         <img src={featuredProducts[currentIndex]} alt="" />
       </div>
