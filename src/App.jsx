@@ -15,7 +15,7 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         
         <Route path="/category/:category" element={<MainListContainer />} />
         <Route path="/category" element={<MainListContainer />} />

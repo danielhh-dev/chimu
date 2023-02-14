@@ -59,7 +59,7 @@ const NavBar = () => {
         <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <NavLink to="/home">Inicio</NavLink>
+        <NavLink to="/">Inicio</NavLink>
 
         <div className="flex md:pl-5 ">
           <NavLink to="/category">Productos</NavLink>
@@ -83,7 +83,7 @@ const NavBar = () => {
         </div>
 
         <NavLink to="/contact"> Contacto</NavLink>
-        <NavLink to="/about"> Sobre nosotros</NavLink>
+        <NavLink to="/about"> Sobre mi</NavLink>
       </nav>
       <div className=" mr-auto ">
         <LogoIcon />

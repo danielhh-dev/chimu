@@ -17,7 +17,7 @@ const Home = () => {
   const queryCollection = collection(db, "items");
 
   useEffect(() => {
-    getDocs(query(queryCollection, where("category", "==", "principales"))).then(
+    getDocs(query(queryCollection, where("category", "==", "tazas"))).then(
       (res) =>
         setProducts(
           res.docs.map((product) => ({ id: product.id, ...product.data() }))
