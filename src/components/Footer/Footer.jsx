@@ -23,11 +23,10 @@ const Footer = () => {
 
       <div>
         <div className="flex w-16 flex-wrap gap-2.5 md:w-full ">
-          <img src={gmailIcon} alt="" />
-          <img src={whatsAppIcon} alt="" />
-          <img src={instagramIcon} alt="" />
-          <img src={facebookIcon} alt="" />
-        </div>
+          <a href=""><img src={gmailIcon} alt="" /></a>       
+          <a href=""><img src={whatsAppIcon} alt="" /></a>          
+          <a href=""><img src={instagramIcon} alt="" /></a>
+          <a href=""><img src={facebookIcon} alt="" /></a>        </div>
       </div>
     </footer>
   );
