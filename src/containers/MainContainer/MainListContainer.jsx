@@ -3,39 +3,42 @@ import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList/ItemList";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 
-const MainListContainer = ({ title }) => {
+const MainListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const db = getFirestore();
 
-  const getProducts = async () => {
+  const getProduct = async () => {
     const fullCollection = collection(db, "items");
+    const dataDoc = await getDocs(fullCollection);
+
+    const listProduct = dataDoc.docs.map((product) => {
+      let item = product.data();
+      item.id = product.id;
+      return item;
+    });
+
+    const filterByCategory = listProduct.filter(
+      (item) => item.category == category
+    );
 
     if (category) {
-      const queryFilter = query(
-        fullCollection,
-        where("category", "==", category)
-      );
-      const dataDocs = await getDocs(queryFilter);
-      setProducts(
-        dataDocs.docs.map((product) => ({ id: product.id, ...product.data() }))
-      );
+      return filterByCategory;
     } else {
-      const dataDocs = await getDocs(fullCollection);
-      setProducts(
-        dataDocs.docs.map((product) => ({ id: product.id, ...product.data() }))
-      );
+      return listProduct;
     }
   };
 
   useEffect(() => {
-    getProducts();
+    getProduct().then((res) => setProducts(res));
   }, [category]);
 
   return (
     <>
-      <div className="m-auto w-max my-14 text-3xl font-bold">{title}</div>
-      <ItemList products={products} />
+      <h1 className="my-4 text-center text-2xl">
+        {category ? category.toUpperCase() : "PRODUCTOS"}
+      </h1>
+      <ItemList products={products} title={category} />
     </>
   );
 };
