@@ -28,7 +28,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="md:w-9/12 m-auto ">
+    <div className="m-auto flex flex-col items-center md:w-9/12 ">
       <NavSearchIcon navBar={false} />
       <MainSlider />
       <MainListContainer title={title} />
