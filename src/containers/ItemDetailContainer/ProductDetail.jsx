@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../context/UseCartContext";
 import FlechaAbajo from "../../components/icons/FlechaAbajo";
 import FlechaArriba from "../../components/icons/FlechaArriba";
-
-import ProductSpecs from "./ProductSpecs";
+import { uploadFile } from "../../firebase/config";
 
 const ProductDetail = ({ product }) => {
   const [modelSelected, setModelSelected] = useState("");
+  const [nameSelected, setNameSelected] = useState("");
+  const [file, setFile] = useState(null);
 
   const [contador, setContador] = useState(1);
   // aumenta contador
@@ -23,10 +24,19 @@ const ProductDetail = ({ product }) => {
   // agregar al carrito desde Detail
 
   const onAdd = () => {
+    handleUpload();
     if (!modelSelected) {
+      product.modelSelected = "sinModelo";
       addToCart(product, contador);
     } else {
       product.modelSelected = modelSelected;
+      addToCart(product, contador);
+    }
+    if (!nameSelected) {
+      product.nameSelected = "sinNombre";
+      addToCart(product, contador);
+    } else {
+      product.nameSelected = nameSelected;
       addToCart(product, contador);
     }
   };
@@ -34,8 +44,21 @@ const ProductDetail = ({ product }) => {
   const handleChangeModel = (e) => {
     setModelSelected(e.target.value);
   };
+  const handleChangeName = (e) => {
+    setNameSelected(e.target.value);
+    console.log(nameSelected);
+  };
 
-  console.log(modelSelected);
+  const handleUpload = async () => {
+    try {
+      const imageURL = await uploadFile(file);
+      product = { ...product, uploadedImage: imageURL };
+    } catch (error) {
+      alert("Fallo interno, intente más tarde");
+    }
+  };
+
+  // console.log(product.image.length);
 
   return (
     <section className="container mx-auto mb-4 px-4">
@@ -48,17 +71,19 @@ const ProductDetail = ({ product }) => {
       </p>
 
       <div className=" mb-6 grid grid-cols-2 md:mx-0">
-        {product.models_designs && (
-          <div className="col-span-3 mb-5 ">
-            <label
-              htmlFor="nameOfTaza"
-              className="form-label mb-2 inline-block text-gray-700"
-            >
-              Elige tu diseño : {modelSelected}
-            </label>
+        {() => {
+          if (product.image.length > 1) {
+            return (
+              <div className="col-span-3 mb-5 ">
+                <label
+                  htmlFor="nameOfTaza"
+                  className="form-label mb-2 inline-block text-gray-700"
+                >
+                  Elige tu diseño : {modelSelected}
+                </label>
 
-            <select
-              className="form-select m-0
+                <select
+                  className="form-select m-0
                                                   block
                                                   w-full
                                                   appearance-none
@@ -73,21 +98,23 @@ const ProductDetail = ({ product }) => {
                                                   transition
                                                   ease-in-out
                                                   focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-              id="nameOfTaza "
-              aria-label="Default select example"
-              name="models"
-              onChange={handleChangeModel}
-            >
-              {product.models_designs.map((m) => {
-                return (
-                  <option key={m} value={m}>
-                    {m}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        )}
+                  id="nameOfTaza "
+                  aria-label="Default select example"
+                  name="models"
+                  onChange={handleChangeModel}
+                >
+                  {product.models_designs.map((m) => {
+                    return (
+                      <option key={m} value={m}>
+                        {m}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            );
+          }
+        }}
 
         <div className="col-span-3 mb-5  ">
           <label
@@ -96,7 +123,7 @@ const ProductDetail = ({ product }) => {
           >
             Escribe aqui el nombre para tu taza
           </label>
-          <textarea
+          <input
             className="
                                 form-control
                                 m-0
@@ -114,10 +141,28 @@ const ProductDetail = ({ product }) => {
                                 ease-in-out
                                 focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
                             "
-            id="exampleFormControlTextarea1"
-            rows="1"
-            placeholder="Nombre"
-          ></textarea>
+            type="text"
+            onChange={handleChangeName}
+          />
+        </div>
+        <div className="col-span-2 grid items-center">
+          <p>Carga tu diseño</p>
+          <div className="flex justify-center    rounded-lg bg-rosa-claro p-2">
+            <p className="p-2">Inserta aquí el archivo de tu diseño</p>
+            <input
+              type="file"
+              id="upload"
+              name="upload"
+              className="invisible"
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+              }}
+              required
+            />
+            <label htmlFor="upload" className="rounded-sm bg-gray-300 p-2">
+              Examinar
+            </label>
+          </div>
         </div>
       </div>
 

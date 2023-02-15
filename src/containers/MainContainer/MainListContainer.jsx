@@ -35,8 +35,8 @@ const MainListContainer = () => {
 
   return (
     <>
-      <h1 className="my-4 text-center text-2xl">
-        {category ? category.toUpperCase() : "PRODUCTOS"}
+      <h1 className="my-8 text-center text-lg font-light md:my-16 md:text-4xl">
+        {category ? category.toUpperCase() : "Conocé nuestros productos"}
       </h1>
       <ItemList products={products} title={category} />
     </>

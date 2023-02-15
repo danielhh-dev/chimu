@@ -58,10 +58,14 @@ const NavBar = () => {
         <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/" className="text-lg">
+          Inicio
+        </NavLink>
 
         <div className="flex md:pl-5 ">
-          <NavLink to="/category">Productos</NavLink>
+          <NavLink to="/category" className="text-lg">
+            Productos
+          </NavLink>
           <div className="z-10 mt-1 cursor-pointer ">
             <BiChevronRight
               onClick={handleClickDropMenu}
@@ -86,10 +90,16 @@ const NavBar = () => {
           </div>
         </div>
 
-        <NavLink to="/contact"> Contacto</NavLink>
-        <NavLink to="/about"> Sobre nosotros</NavLink>
+        <NavLink to="/contact" className="text-lg">
+          {" "}
+          Contacto
+        </NavLink>
+        <NavLink to="/about" className="text-lg">
+          {" "}
+          Sobre nosotros
+        </NavLink>
       </nav>
-      <div className=" mr-auto ">
+      <div className=" mr-auto">
         <LogoIcon />
       </div>
 

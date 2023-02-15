@@ -15,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
+//Subir una imagen a firebse y devolver un link de la misma
 export const uploadFile = async (file) => {
   const storageRef = ref(storage, `uploaded/${v4()}`);
   await uploadBytes(storageRef, file);
