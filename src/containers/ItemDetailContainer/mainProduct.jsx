@@ -1,5 +1,6 @@
 import ProductDetail from "./ProductDetail";
 import SliderProduct from "./SliderProduct";
+import NavBar from "../../components/navbar/MainNavBar";
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/UseCartContext";
 import NavSearchIcon from "../../components/icons/NavSearchIcon";
@@ -31,6 +32,7 @@ const MainProduct = () => {
 
   return (
     <>
+      <NavBar />
       <NavSearchIcon navBar={false} />
       <main className="mb-8  grid  grid-cols-1 items-center gap-8 md:container md:mx-auto md:min-h-[calc(100vh-84px)]  md:w-9/12 md:grid-cols-2  lg:mt-10">
         <SliderProduct images={images} />
