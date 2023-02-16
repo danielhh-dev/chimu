@@ -1,25 +1,11 @@
 import { useState } from "react";
 import NextIcon from "../../components/icons/NextIcon";
 import PreviousIcon from "../../components/icons/PreviousIcon";
-import imgProduct2 from "../../assets/imagen-1.jpg";
 
-import imgProduct1 from "../../assets/imagen-5.jpg";
-
-import imgProduct3 from "../../assets/imagen-2.jpg";
-import imgProduct4 from "../../assets/imagen-3.jpg";
-import imgProduct5 from "../../assets/imagen-4.jpg";
-
-const ARRAY_IMGS = [
-  imgProduct1,
-  imgProduct3,
-  imgProduct4,
-  imgProduct5,
-]; /* Esto queda afuera porque no quiero que se renderice de nuevo */
-
-const SliderProduct = ({ images }) => {
+const SliderProduct = ( {images} ) => {
   const [index, setIndex] = useState(0);
 
-  const handleClickNext = () => {
+  const handleClickNext =  () => {
     if (index === images.length - 1) {
       setIndex(0);
     } else {
@@ -27,7 +13,7 @@ const SliderProduct = ({ images }) => {
     }
   };
 
-  const handleClickPrev = () => {
+  const handleClickPrev =  () => {
     if (index === 0) {
       setIndex(images.length - 1);
     } else {
@@ -40,7 +26,7 @@ const SliderProduct = ({ images }) => {
       <div className="relative">
         <div className="absolute top-1/2 left-0 flex w-full -translate-y-1/2 justify-between px-2 ">
           <button
-            onClick={handleClickPrev}
+            onClick={ handleClickPrev}
             className="grid h-10 w-10 place-items-center"
           >
             <PreviousIcon />

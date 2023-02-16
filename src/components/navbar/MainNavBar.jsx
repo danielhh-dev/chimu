@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const handleOpenMenu = () => {
     setNavClass(
-      "absolute z-10 text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
+      "absolute z-10  text-white top-0 p-2 left-0 h-[105.6vh] sm:w-64 md:h-auto md:p-2 bg-rosa-oscuro flex gap-y-5   w-64 md:w-[50%] flex-col md:flex-row  md:gap-4 md:static md:p-0"
     );
   };
 
@@ -37,9 +37,9 @@ const NavBar = () => {
 
   const [click, setClick] = useState(false);
 
-  const handleClickDropMenu = () => {
-    setClick(!click);
-    click
+  const handleClickDropMenu = async () => {
+    await setClick(!click);
+    !click
       ? setDropMenu(
           " flex flex-col md:absolute  bg-rosa-oscuro pl-4 md:justify-start md:pl-0 -ml-24"
         )
@@ -55,21 +55,27 @@ const NavBar = () => {
         <img src={menuIcon} alt="" />
       </button>
       <nav className={navClass}>
-        <button onClick={handleCloseMenu} className="mb-5 md:hidden">
+        <button onClick={handleCloseMenu} className="mb-5 md:hidden ">
           <CloseIcon />
         </button>
-        <a href="/">Inicio</a>
+        <NavLink to="/" className="text-lg">
+          Inicio
+        </NavLink>
 
-        <div className="flex">
-          <NavLink to="/category">Productos</NavLink>
-          <div
-            onClick={handleClickDropMenu}
-            className="z-10 mt-2 cursor-pointer pl-5"
-          >
-            <BiChevronRight className={click ? "rotate-0" : "rotate-90"} />
+        <div className="flex md:pl-5 ">
+          <NavLink to="/category" className="text-lg">
+            Productos
+          </NavLink>
+          <div className="z-10 mt-1 cursor-pointer ">
+            <BiChevronRight
+              onClick={handleClickDropMenu}
+              className={` text-[1.1rem]  font-extrabold ${
+                click && "rotate-90"
+              }`}
+            />
             <ul className={dropMenu}>
               <li className="py-2  pl-1 pr-2">
-                <NavLink to="/category/tazasbotellas">Tazas/Botellas</NavLink>
+                <NavLink to="/category/tazas">Tazas/Botellas</NavLink>
               </li>
               <li className="py-2 pl-1 pr-2">
                 <NavLink to="/category/kits">Kits</NavLink>
@@ -77,30 +83,38 @@ const NavBar = () => {
               <li className="py-2 pl-1 pr-2">
                 <NavLink to="/category/cotillones">Cotillones</NavLink>
               </li>
-              <li className="py-2 pl-1 pr-2">Indumentaria</li>
-              <li className="py-2 pl-1 pr-2">Papeleria</li>
-              <li className="py-2 pl-1 pr-2">Otros</li>
+              <li className="py-2 pl-1 pr-2"><NavLink to="/category/indumentaria">Indumentaria</NavLink></li>
+              <li className="py-2 pl-1 pr-2"><NavLink to="/category/papeleria">Papeleria</NavLink></li>
+              <li className="py-2 pl-1 pr-2"><NavLink to="/category/otros">Otros</NavLink></li>
             </ul>
           </div>
         </div>
 
-        <NavLink to="/contacto"> Contacto</NavLink>
-        <NavLink to="/about"> Sobre nosotros</NavLink>
+        <NavLink to="/contact" className="text-lg">
+          {" "}
+          Contacto
+        </NavLink>
+        <NavLink to="/about" className="text-lg">
+          {" "}
+          Sobre mi
+        </NavLink>
       </nav>
-      <div className=" mr-auto ">
+      <div className=" mr-auto">
         <LogoIcon />
       </div>
 
-      <div className=" mx-2 flex gap-4">
+      <div className=" mx-2 flex  md:w-96 lg:w-auto ">
         <div className="hidden md:block">
           <NavSearchIcon navBar={true} />
         </div>
         <button
           className="relative flex items-center justify-center"
-          onClick={() => setIsOpenModal(!isOpenModal)}
+          onClick={() => {
+            setIsOpenModal(!isOpenModal);
+          }}
         >
           {cart.length > 0 && (
-            <span className=" absolute -top-4 text-xs font-bold text-white md:-top-2">
+            <span className=" absolute -top-5 text-base font-bold text-white md:-top-0">
               {cart.length}
             </span>
           )}

@@ -2,31 +2,51 @@ import instagramIcon from "../../assets/icons/instagram.png";
 import facebookIcon from "../../assets/icons/facebook.png";
 import gmailIcon from "../../assets/icons/gmail.png";
 import whatsAppIcon from "../../assets/icons/whatsApp.png";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className=" bottom-0  flex h-44 w-full flex-row items-end justify-between bg-color-verde pl-4 pt-7 pr-5 pb-8 md:pb-5">
+    <footer className="mt-[70vh] flex h-44 w-full flex-row items-end justify-between  bg-color-verde pl-4 pt-7 pr-5 pb-8  md:pb-5">
       <nav className="flex flex-col gap-3 ">
-        <a className="text-sm text-white md:text-lg " href="/">
+        <NavLink className="text-sm text-white md:text-lg " to="/">
           Inicio
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
+        </NavLink>
+        <NavLink className="text-sm text-white  md:text-lg" to="/category">
           Productos{" "}
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
+        </NavLink>
+        <NavLink className="text-sm text-white  md:text-lg" to="/contact">
           Contacto
-        </a>
-        <a className="text-sm text-white  md:text-lg" href="/">
-          Sobre nosotros
-        </a>
+        </NavLink>
+        <NavLink className="text-sm text-white  md:text-lg" to="/about">
+          Sobre mi
+        </NavLink>
       </nav>
-
       <div>
         <div className="flex w-16 flex-wrap gap-2.5 md:w-full ">
-          <img src={gmailIcon} alt="" />
-          <img src={whatsAppIcon} alt="" />
-          <img src={instagramIcon} alt="" />
-          <img src={facebookIcon} alt="" />
+          <a
+            target="_blanck"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=jessica_araoz@hotmail.com&su=Consulta&body=${encodeURIComponent('Hola Chimu, me gustaria hacerte una pregunta...')}`}
+          >
+            <img src={gmailIcon} alt="" />
+          </a>
+          <a
+            target="_blanck"
+            href={`https://api.whatsapp.com/send/?phone=5493815136509&text=${encodeURIComponent('Hola Chimu, me gustaria hacerte una pregunta...')}`}
+          >
+            <img src={whatsAppIcon} alt="" />
+          </a>
+          <a
+            target="_blanck"
+            href="https://www.instagram.com/chimu.sublimaciones/"
+          >
+            <img src={instagramIcon} alt="" />{" "}
+          </a>
+          <a
+            target="_blanck"
+            href="https://www.facebook.com/chimusublimaciones"
+          >
+            <img src={facebookIcon} alt="" />
+          </a>
         </div>
       </div>
     </footer>
