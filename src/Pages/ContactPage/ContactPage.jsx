@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { addDoc, collection, getFirestore} from 'firebase/firestore'
+import NavBar from "../../components/navbar/MainNavBar";
 
 const ContactPage = () => {
   const [link,setLink]= useState(``)
@@ -71,6 +72,9 @@ Consulta: ${query.person.comments}
 
 
   return (
+    <>
+    
+    <NavBar />
     <section className="">
       <h1 className="my-6 text-center text-3xl">Contacto</h1>
       <p className="hidden md:my-8 md:flex md:justify-center">
@@ -150,6 +154,7 @@ Consulta: ${query.person.comments}
 
       <div className=""></div>
     </section>
+    </>
   );
 };
 
