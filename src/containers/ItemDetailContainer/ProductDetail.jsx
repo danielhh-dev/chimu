@@ -254,10 +254,10 @@ const ProductDetail = ({ product }) => {
             onChange={handleChangeName}
           />
         </div>
-        <div className="col-span-2 grid items-center">
+        <div className=" col-span-2 grid items-center">
           <p>Carga tu diseño</p>
-          <div className="flex justify-center    rounded-lg bg-rosa-claro p-2">
-            <p className="p-2">Inserta aquí el archivo de tu diseño</p>
+          <div className="flex w-[70%] md:w-[94%] items-center justify-evenly rounded-lg bg-rosa-claro p-2">
+            <p className="p-2 w-full md:w-11/12">Inserta aquí el archivo de tu diseño</p>
             <input
               type="file"
               id="upload"
@@ -268,7 +268,7 @@ const ProductDetail = ({ product }) => {
               }}
               required
             />
-            <label htmlFor="upload" className="rounded-sm bg-gray-300 p-2">
+            <label htmlFor="upload" className="flex items-center h-[10%] rounded-sm bg-gray-300 p-2">
               Examinar
             </label>
           </div>
