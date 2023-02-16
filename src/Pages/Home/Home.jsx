@@ -4,6 +4,7 @@ import NavBar from "../../components/navbar/MainNavBar";
 import NavSearchIcon from "../../components/icons/NavSearchIcon";
 import creamos from "./creamos.png";
 import personalizamos from "./personalizamos.png";
+import { NavLink } from "react-router-dom";
 import realizamos from "./realizamos.png";
 import merienda from "./merienda.png";
 
@@ -40,10 +41,18 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section
-          className="my-20 w-[300px] h-[200px] md:h-[560px] md:w-[900px] bg-cover bg-center bg-no-repeat"
+        <section>
+
+        </section>
+        <p className=" text-2xl md:text-4xl mt-8">Set de meriendas</p>
+        <p className=" text base text-center w-9/12 md:text-xl my-4">Prepará el mejor set de meriendas antes de que empiecen las clases</p>
+        <div
+          className="my-4 w-[300px] h-[200px] md:h-[460px] md:w-[800px] bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${merienda})` }}
-        ></section>
+        ></div>
+        <NavLink className=" grid place-items-center  md:-my-40 mx-auto h-12 w-1/2 rounded-lg bg-color-verde text-white md:col-span-2 md:w-1/4" to="/detail/7Vn2u89TtyTPervYNstX">
+             Personalizar
+        </NavLink>
       </div>
     </>
   );

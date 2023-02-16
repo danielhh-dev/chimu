@@ -41,14 +41,14 @@ const MainListContainer = () => {
       {location.pathname == "/category" || category ? (
         <>
           <NavBar />
-          <h1 className="my-8 text-center  font-light md:my-16 text-4xl">
+          <h1 className="my-8 text-center text-2xl md:my-16 md:text-4xl">
             {category ? category.toUpperCase() : "Conocé nuestros productos"}
           </h1>
           <ItemList products={products} title={category} />
         </>
       ) : (
         <>
-          <h1 className="my-8 text-center  font-light md:my-16 text-4xl">
+          <h1 className="my-8 text-center text-2xl  md:my-16 md:text-4xl">
             {category ? category.toUpperCase() : "Conocé nuestros productos"}
           </h1>
           <ItemList products={products} title={category} />
