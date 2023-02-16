@@ -62,7 +62,7 @@ Consulta: ${query.person.comments}
 `
   let orderText = encodeURIComponent(msg);
   
-  let url = `https://api.whatsapp.com/send/?phone=5492302554639&text=${orderText}`
+  let url = `https://api.whatsapp.com/send/?phone=5493815136509&text=${orderText}`
 
   return url
   
