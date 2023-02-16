@@ -112,7 +112,7 @@ Comentarios: ${order.buyer.comments}
 `;
     let orderText = encodeURIComponent(msg);
 
-    let url = `https://api.whatsapp.com/send/?phone=549${order.buyer.phone}&text=${orderText}`;
+    let url = `https://api.whatsapp.com/send/?phone=5493815136509&text=${orderText}`;
 
     return url;
   };
