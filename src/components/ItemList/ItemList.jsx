@@ -11,7 +11,7 @@ const ItemList = ({ products }) => {
     <>
       <section className="grid justify-center">
         <div
-          className={`m-auto flex flex-col md:flex-row flex-wrap justify-center gap-6 md:gap-8  ${
+          className={`m-auto flex  flex-wrap justify-center gap-6 md:gap-8  ${
             ver ? "h-max" : "h-[840px]"
           } overflow-hidden`}
         >

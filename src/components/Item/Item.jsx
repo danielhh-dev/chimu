@@ -6,11 +6,11 @@ const Item = ({ image, name, price, id }) => {
       <img
         src={image}
         alt=""
-        className="h-[200px] w-[200px]  md:h-[300px] md:w-[300px] "
+        className="h-[160px] w-[160px]  md:h-[300px] md:w-[300px] "
       />
-      <div className=" w-[160px] pt-8 flex flex-col items-center mx-auto md:w-[300px] text-xl  md:text-xl">
-        <p className="text-center">{name}</p>
-        <p className="textcenter">{price}ARS</p>
+      <div className=" w-[160px] pt-8 text-center text-sm md:w-[300px]  md:text-2xl">
+        <p className="card-text">{name}</p>
+        <p className="card-text">{price}ARS</p>
       </div>
     </NavLink>
   );

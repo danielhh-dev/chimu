@@ -41,7 +41,7 @@ const Home = () => {
           </div>
         </section>
         <section
-          className="my-20 h-[560px] w-96 bg-cover bg-center bg-no-repeat"
+          className="my-20 w-[300px] h-[200px] md:h-[560px] md:w-[900px] bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${merienda})` }}
         ></section>
       </div>
