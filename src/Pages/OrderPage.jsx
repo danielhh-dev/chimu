@@ -120,7 +120,7 @@ Comentarios: ${order.buyer.comments}
   return (
     <>
       <NavBar />
-      <section className="m-8 mx-auto grid h-[180vh] w-[95%] md:h-[58vh] lg:h-full ">
+      <section className="m-8 mx-auto grid  h-[180vh] w-[95%] md:h-[140vh]  ">
         <div className="mx-4 rounded-md">
           <h4 className="my-6 px-6 py-8 text-center text-3xl font-bold">
             Tu pedido

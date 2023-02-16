@@ -4,7 +4,7 @@ const ContactPage = () => {
   return (
     <>
       <NavBar />
-      <section className="">
+      <section className="h-48">
         <h1 className="my-6 text-center text-3xl">Contacto</h1>
         <p className="hidden md:my-8 md:flex md:justify-center">
           Si estás buscando un diseño personalizado. Dejanos tus datos de

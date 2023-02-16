@@ -8,7 +8,7 @@ const CartModal = () => {
   const { cart, deleteToCart } = useContext(CartContext);
 
   return (
-    <section className="absolute  top-[125%] left-0 z-10 w-full md:left-full md:top-full md:max-w-md md:-translate-x-full ">
+    <section className="absolute  top-[125%] left-0 z-10 w-full md:left-full md:top-full md:max-w-md md:-translate-x-full  " >
       <div className="mx-4 rounded-md bg-rosa-claro">
         <h4 className="px-6 py-8 text-center text-lg font-bold">Carrito</h4>
         {cart.map((item, index) => {
