@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Kumbh Sans", ...defaultTheme.fontFamily.sans],
+        sans: ["Poppins", "sans-serif"],
       },
 
       colors: {
