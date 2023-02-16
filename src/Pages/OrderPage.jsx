@@ -38,7 +38,8 @@ const OrderPage = () => {
       modelSelected: product.modelSelected,
       nameSelected: product.nameSelected,
       talleSelected: product.talleSelected,
-      colorSelected: product.colorSelected
+      colorSelected: product.colorSelected,
+      uploadedImage: product.uploadedImage
     })),
 
     total: cart.reduce((acc, prod) => acc + prod.price * prod.quantity, 0),
@@ -90,6 +91,7 @@ ${order.items
     ${item.nameSelected && `Nombre producto:${item.nameSelected}`}
     ${item.talleSelected && `Talle:${item.talleSelected}`}
     ${item.colorSelected && `Color:${item.colorSelected}`}
+    ${item.uploadedImage && `Imagen subida:${item.uploadedImage}`}
 `;
   })
   .join("")}

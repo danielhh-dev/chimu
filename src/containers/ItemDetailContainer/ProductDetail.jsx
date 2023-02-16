@@ -79,7 +79,7 @@ const ProductDetail = ({ product }) => {
   const handleUpload = async () => {
     try {
       const imageURL = await uploadFile(file);
-      product = { ...product, uploadedImage: imageURL };
+      product.uploadedImage = imageURL ;
     } catch (error) {
       alert("Fallo interno, intente más tarde");
     }
