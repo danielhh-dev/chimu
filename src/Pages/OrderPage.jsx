@@ -120,7 +120,7 @@ Comentarios: ${order.buyer.comments}
   return (
     <>
       <NavBar />
-      <section className="m-8 mx-auto grid h-[60vh] w-[95%] md:h-[58vh] lg:h-full ">
+      <section className="m-8 mx-auto grid h-[180vh] w-[95%] md:h-[58vh] lg:h-full ">
         <div className="mx-4 rounded-md">
           <h4 className="my-6 px-6 py-8 text-center text-3xl font-bold">
             Tu pedido
@@ -130,17 +130,17 @@ Comentarios: ${order.buyer.comments}
               <div key={index}>
                 <div className="w-full  border border-solid border-black"></div>
 
-                <div className="grid grid-cols-[1fr_4fr_1fr] items-center gap-6 px-6 py-4">
+                <div className="grid grid-cols-[3fr_5fr_1fr] md:grid-cols-[1fr_4fr_1fr] items-center gap-6 px-6 py-4">
                   <img src={item.image[0]} alt="" className="rounded-md" />
 
                   <div>
-                    <h6 className="text-2xl font-bold">{item.name}</h6>
+                    <h6 className="text-xl font-bold">{item.name}</h6>
                     <div>
-                      <span className="text-xl">Cantidad: {item.quantity}</span>{" "}
+                      <span className="text-lg">Cantidad: {item.quantity}</span>{" "}
                       <br />
-                      <span className="text-xl">ARS {item.price}</span>{" "}
+                      <span className="text-lg">ARS {item.price}</span>{" "}
                       <br></br>
-                      <span className="text-xl">
+                      <span className="text-lg">
                         {item.modelSelected && `Diseño:${item.modelSelected}`} <br></br>
                         {item.nameSelected && `Nombre:${item.nameSelected}`} <br></br>
                         {item.colorSelected && `Color:${item.colorSelected}`}
@@ -149,10 +149,10 @@ Comentarios: ${order.buyer.comments}
                   </div>
 
                   <div className="flex flex-col items-end pt-12">
-                    <div className="mx-4 mb-4   flex  w-40 flex-col md:col-span-2 md:mx-0  ">
+                    <div className=" mb-4   flex  w-full flex-col md:col-span-2 mx-0  ">
                       <h6 className="col-span-2 text-xl">Cantidad</h6>
-                      <div className="flex justify-center gap-11  rounded-lg bg-rosa-claro p-2">
-                        <span>{item.quantity}</span>
+                      <div className="flex justify-center gap-11 rounded-lg bg-rosa-claro p-2">
+                        <span className="text-lg">{item.quantity}</span>
                         <div className="flex flex-col gap-1 ">
                           <button onClick={() => addToCart(item, 1)}>
                             <FlechaArriba />
@@ -196,16 +196,7 @@ Comentarios: ${order.buyer.comments}
                     0
                   )}
                 </span>
-                <button
-                  onClick={() =>
-                    setTimeout(() => {
-                      setShowForm(true);
-                    }, 2000)
-                  }
-                  className="my-4 mx-auto grid h-10 w-1/2 items-center justify-center rounded-lg bg-color-verde text-xl text-white md:col-span-2 md:w-1/3"
-                >
-                  Siguiente
-                </button>
+                
               </div>
             </>
           )}
@@ -240,8 +231,8 @@ Comentarios: ${order.buyer.comments}
             ></a>
           </p>
         </div>
-        {showForm && (
-          <div>
+        <div className="my-2  w-full border border-solid border-black"></div>
+          <div className="">
             <h1 className="my-6 text-center text-3xl">Tus datos</h1>
 
             <form
@@ -343,7 +334,7 @@ Comentarios: ${order.buyer.comments}
               </button>
             </form>
           </div>
-        )}
+        
       </section>
     </>
   );
