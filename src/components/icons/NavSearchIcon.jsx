@@ -58,7 +58,7 @@ const NavSearchIcon = (props) => {
             onChange={searcher}
             type="text"
             id="search-navbar"
-            className=" m-1 md:m-4 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
+            className=" ml-2 md:m-4 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
             placeholder="¿Qué estas buscando?"
           />
           <table className="md:  absolute z-10 ml-6 w-9/12 w-80 border-separate border-spacing-2">
