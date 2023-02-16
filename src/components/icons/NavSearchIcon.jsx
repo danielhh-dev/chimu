@@ -34,7 +34,7 @@ const NavSearchIcon = (props) => {
   }, []);
 
   return (
-    <div className="  grid-row-1 my-2 mx-auto grid w-[95%] ">
+    <div className="  grid-row-1 my-1 mx-auto grid w-[85%] ">
       <div className={props.navBar ? `flex  md:order-2` : "md:hidden"}>
         <div className={`relative  md:block`}>
           <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center pl-3">
@@ -58,7 +58,7 @@ const NavSearchIcon = (props) => {
             onChange={searcher}
             type="text"
             id="search-navbar"
-            className="m-4 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
+            className="m-2 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
             placeholder="¿Qué estas buscando?"
           />
           <table className="md:  absolute z-10 ml-6 w-9/12 w-80 border-separate border-spacing-2">
