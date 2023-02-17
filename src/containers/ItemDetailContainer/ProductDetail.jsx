@@ -11,8 +11,6 @@ const ProductDetail = ({ product }) => {
   const [colorSelected, setColorSelected] = useState("");
   const [file, setFile] = useState(null);
 
-  
-
   const [contador, setContador] = useState(1);
   // aumenta contador
   const addNumber = () => {
@@ -79,12 +77,11 @@ const ProductDetail = ({ product }) => {
   const handleUpload = async () => {
     try {
       const imageURL = await uploadFile(file);
-      product.uploadedImage = imageURL ;
+      product.uploadedImage = imageURL;
     } catch (error) {
       alert("Fallo interno, intente más tarde");
     }
   };
-
 
   return (
     <section className="container mx-auto mb-4 px-4">
@@ -97,23 +94,21 @@ const ProductDetail = ({ product }) => {
       </p>
 
       <div className=" mb-6 grid grid-cols-2 md:mx-0">
-
-      {
-          product.colors && 
+        {product.colors && (
           <div className="col-span-3 mb-5 ">
-          <label
-            htmlFor="nameOfTaza"
-            className="form-label mb-2 inline-block text-gray-700"
-          >
-            Color : {colorSelected ? colorSelected : 'Sin seleccion'}
-          </label>
+            <label
+              htmlFor="nameOfTaza"
+              className="form-label mb-2 inline-block text-gray-700"
+            >
+              Color : {colorSelected ? colorSelected : "Sin seleccion"}
+            </label>
 
-          <select
-            className="form-select m-0
+            <select
+              className="form-select m-0
                                             block
                                             w-full
                                             appearance-none
-                                            rounded
+                                            rounded-md
                                             border
                                             border-solid
                                             border-gray-300
@@ -124,38 +119,37 @@ const ProductDetail = ({ product }) => {
                                             transition
                                             ease-in-out
                                             focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-            id="nameOfTaza "
-            aria-label="Default select example"
-            name="models"
-            onChange={handleChangeColor}
-          >
-            {product.colors.map((m) => {
-              return (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        }
+              id="nameOfTaza "
+              aria-label="Default select example"
+              name="models"
+              onChange={handleChangeColor}
+            >
+              {product.colors.map((m) => {
+                return (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
 
-        {
-          product.talle && 
+        {product.talle && (
           <div className="col-span-3 mb-5 ">
-          <label
-            htmlFor="nameOfTaza"
-            className="form-label mb-2 inline-block text-gray-700"
-          >
-            Talle : {talleSelected ? talleSelected : 'Sin seleccion'}
-          </label>
+            <label
+              htmlFor="nameOfTaza"
+              className="form-label mb-2 inline-block text-gray-700"
+            >
+              Talle : {talleSelected ? talleSelected : "Sin seleccion"}
+            </label>
 
-          <select
-            className="form-select m-0
+            <select
+              className="form-select m-0
                                             block
                                             w-full
                                             appearance-none
-                                            rounded
+                                            rounded-md
                                             border
                                             border-solid
                                             border-gray-300
@@ -166,37 +160,37 @@ const ProductDetail = ({ product }) => {
                                             transition
                                             ease-in-out
                                             focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-            id="nameOfTaza "
-            aria-label="Default select example"
-            name="models"
-            onChange={handleChangeTalle}
-          >
-            {product.talle.map((m) => {
-              return (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        }
-        
-          { (product.models_designs ) && 
-              <div className="col-span-3 mb-5 ">
-                <label
-                  htmlFor="nameOfTaza"
-                  className="form-label mb-2 inline-block text-gray-700"
-                >
-                  Elige tu diseño : {modelSelected}
-                </label>
+              id="nameOfTaza "
+              aria-label="Default select example"
+              name="models"
+              onChange={handleChangeTalle}
+            >
+              {product.talle.map((m) => {
+                return (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
 
-                <select
-                  className="form-select m-0
+        {product.models_designs && (
+          <div className="col-span-3 mb-5 ">
+            <label
+              htmlFor="nameOfTaza"
+              className="form-label mb-2 inline-block text-gray-700"
+            >
+              Elige tu diseño : {modelSelected}
+            </label>
+
+            <select
+              className="form-select m-0
                                                   block
                                                   w-full
                                                   appearance-none
-                                                  rounded
+                                                  rounded-md
                                                   border
                                                   border-solid
                                                   border-gray-300
@@ -207,23 +201,21 @@ const ProductDetail = ({ product }) => {
                                                   transition
                                                   ease-in-out
                                                   focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
-                  id="nameOfTaza "
-                  aria-label="Default select example"
-                  name="models"
-                  onChange={handleChangeModel}
-                >
-                  {product.models_designs.map((m) => {
-                    return (
-                      <option key={m} value={m}>
-                        {m}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-}
-          
-        
+              id="nameOfTaza "
+              aria-label="Default select example"
+              name="models"
+              onChange={handleChangeModel}
+            >
+              {product.models_designs.map((m) => {
+                return (
+                  <option key={m} value={m}>
+                    {m}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
 
         <div className="col-span-3 mb-5  ">
           <label
@@ -238,7 +230,7 @@ const ProductDetail = ({ product }) => {
                                 m-0
                                 block
                                 w-full
-                                rounded
+                                rounded-md
                                 border
                                 border-solid
                                 border-gray-300
@@ -254,21 +246,26 @@ const ProductDetail = ({ product }) => {
             onChange={handleChangeName}
           />
         </div>
-        <div className=" col-span-2 grid items-center">
-          <p>Carga tu diseño</p>
-          <div className="flex w-[70%] md:w-[94%] items-center justify-evenly rounded-lg bg-rosa-claro p-2">
-            <p className="p-2 w-full md:w-11/12">Inserta aquí el archivo de tu diseño</p>
+        <div className=" flex w-[358px] flex-wrap md:w-[500px]">
+          <p className="my-3">Carga tu diseño</p>
+          <div className=" flex w-full items-center justify-between rounded-md bg-rosa-claro px-2 md:h-16 md:px-4">
+            <p className="w-40 p-2 text-sm text-gray-400 md:w-11/12 md:text-base">
+              Inserta aquí el archivo de tu diseño
+            </p>
             <input
               type="file"
               id="upload"
               name="upload"
-              className="invisible"
+              className=" hidden"
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
               required
             />
-            <label htmlFor="upload" className="flex items-center h-[10%] rounded-sm bg-gray-300 p-2">
+            <label
+              htmlFor="upload"
+              className="flex h-[30px] items-center rounded-md bg-gray-300 p-2"
+            >
               Examinar
             </label>
           </div>
@@ -278,7 +275,7 @@ const ProductDetail = ({ product }) => {
       <div className="grid items-center">
         <div className="mb-5 flex w-40 flex-col md:col-span-2 md:mx-0 ">
           <h6 className="col-span-2">Cantidad</h6>
-          <div className="flex justify-center gap-11   rounded-lg bg-rosa-claro p-2">
+          <div className="flex justify-center gap-11   rounded-md bg-rosa-claro p-2">
             <span>{contador}</span>
             <div className="flex flex-col gap-1 ">
               <button onClick={() => addNumber()}>
