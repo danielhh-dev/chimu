@@ -25,4 +25,4 @@ dist-ssr
 *.sw?
 
 # API KEY FIREBASE
-src/firebase/config.js
+/src/firebase/config.js
