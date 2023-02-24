@@ -23,13 +23,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/danielhh-dev/chimu.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd chimu
 ```
 
 Install dependencies
