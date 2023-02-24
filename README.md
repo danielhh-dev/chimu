@@ -5,6 +5,8 @@ A brief description of what this project does and who it's for.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus. Et netus et malesuada fames. Non consectetur a erat nam at lectus urna. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla.
 
+### 🔗 [Homepage](https://chimu.netlify.app)
+
 
 ## Screenshots
 
@@ -23,13 +25,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/danielhh-dev/chimu.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd chimu
 ```
 
 Install dependencies
