@@ -23,3 +23,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# API KEY FIREBASE
+src/firebase/config.js
