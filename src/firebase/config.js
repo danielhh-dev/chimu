@@ -1,9 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+const { API_KEY } = process.env;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA8w5jr--9Eig1ugzBrTRbYqNtGyWbdpOY",
+  apiKey: API_KEY,
   authDomain: "chimu-b2c67.firebaseapp.com",
   projectId: "chimu-b2c67",
   storageBucket: "chimu-b2c67.appspot.com",
