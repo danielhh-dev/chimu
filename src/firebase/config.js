@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
-const { API_KEY } = process.env;
+const { API_KEY } = process.env.NODE_ENV;
 
 const firebaseConfig = {
   apiKey: API_KEY,

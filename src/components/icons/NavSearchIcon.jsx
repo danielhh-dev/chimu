@@ -3,7 +3,7 @@ import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { NavLink } from "react-router-dom";
 
 const NavSearchIcon = (props) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -61,7 +61,7 @@ const NavSearchIcon = (props) => {
             className=" ml-2 md:m-4 block w-full  rounded-3xl bg-rosa-claro p-2 pl-10  text-sm  text-gray-900 placeholder-gray-400 md:w-80"
             placeholder="¿Qué estas buscando?"
           />
-          <table className="md:  absolute z-10 ml-6 w-9/12 w-80 border-separate border-spacing-2">
+          <table className="md:  absolute z-10 ml-6 w-9/12  border-separate border-spacing-2">
             <tbody>
               {search &&
                 results.map((product) => (

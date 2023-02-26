@@ -4,7 +4,7 @@ const Item = ({ image, name, price, id }) => {
   return (
     <NavLink to={`/detail/${id}`}>
       <img
-        src={image}
+        src={image[0]}
         alt=""
         className="h-[160px] w-[160px]  md:h-[300px] md:w-[300px] "
       />

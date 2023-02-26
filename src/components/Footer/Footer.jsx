@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="mt-[70vh] flex h-44 w-full flex-row items-end justify-between  bg-color-verde pl-4 pt-7 pr-5 pb-8  md:pb-5">
+    <footer className="mt-[30vh] flex h-44 w-full flex-row items-end justify-between  bg-color-verde pl-4 pt-7 pr-5 pb-8  md:pb-5">
       <nav className="flex flex-col gap-3 ">
         <NavLink className="text-sm text-white md:text-lg " to="/">
           Inicio
