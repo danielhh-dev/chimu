@@ -64,7 +64,7 @@ To deploy this project run
 
 👤 **David**
 - Github: [@shaderlog](https://github.com/shaderlog)
-- LinkedIn: [@](https://linkedin.com/in/)
+- LinkedIn: [@david-cordoba25](https://www.linkedin.com/in/david-cordoba25/)
 
 
 ## 📝 License
