@@ -10,7 +10,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Screenshots
 
-![App Screenshot](https://ibb.co/JQZDbrk)
+![App Screenshot](https://i.ibb.co/2NJGLcK/image-2023-03-10-223032147.png)
 
 
 ## Tech Stack
