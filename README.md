@@ -1,9 +1,15 @@
 
 # Welcome to Chimu 👋
 
-A brief description of what this project does and who it's for.
+Este proyecto es el resultado del trabajo freelance que realizamos para la microempresa Chimu, especializada en la venta de artículos personalizados a través de su ecommerce. Nuestro equipo se encargó de desarrollar la parte frontend del sitio web, utilizando tecnologías de última generación y aplicando las mejores prácticas de diseño y desarrollo.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus. Et netus et malesuada fames. Non consectetur a erat nam at lectus urna. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla.
+Para la interfaz de usuario, utilizamos React, una biblioteca JavaScript popular y ampliamente utilizada en el desarrollo de aplicaciones web interactivas y dinámicas. Asimismo, empleamos Tailwind para crear estilos personalizados y optimizar el rendimiento del sitio.
+
+En cuanto a la gestión de datos, implementamos Firebase, una plataforma de desarrollo de aplicaciones móviles y web que proporciona herramientas para el almacenamiento, la base de datos, la autenticación y el análisis de datos. Con Firebase, pudimos garantizar una gestión eficiente y segura de la información, así como una experiencia de usuario fluida y personalizada.
+
+Una de las funcionalidades destacadas de nuestro proyecto fue la integración con WhatsApp. Al hacer un pedido en el sitio web, se envía automáticamente un mensaje de WhatsApp a Chimu con una lista detallada de los productos que el usuario quiere adquirir. Esta funcionalidad se implementó utilizando tecnologías de mensajería de WhatsApp, permitiendo que la comunicación entre el usuario y Chimu sea más fluida y personalizada.
+
+Durante todo el proceso, trabajamos en estrecha colaboración con el equipo de Chimu para garantizar que el resultado final cumpliera con sus expectativas y requisitos. Estamos muy contentos de haber formado parte de este proyecto y de haber contribuido al éxito de Chimu en su negocio de venta de artículos personalizados a través de su ecommerce. Esperamos que nuestros esfuerzos hayan proporcionado una experiencia de usuario satisfactoria y memorable para los clientes de Chimu.
 
 ### 🔗 [Homepage](https://chimu.netlify.app)
 
